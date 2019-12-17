@@ -35,17 +35,9 @@ namespace HexCardGame.UI
                 var cell = offset.ToVector3Int();
                 _register.Add(cell, hex);
                 TileMap.SetTile(cell, test);
-                Debug.Log($"Add {hex} to cell {cell}");
             }
         }
 
-        public Hex GetHex(Vector3Int cell)
-        {
-            Debug.Log(_register.Count);
-            foreach (var i in _register.Values)
-                Debug.Log(i);
-            Debug.Log("Get Cell value: " + cell);
-            return _register[cell];
-        }
+        public Hex GetHex(Vector3Int cell) => _register[cell];
     }
 }
