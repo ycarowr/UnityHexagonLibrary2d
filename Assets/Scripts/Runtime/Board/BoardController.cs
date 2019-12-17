@@ -15,7 +15,7 @@ namespace HexCardGame.Runtime.GameBoard
         void Start()
         {
             Board = new Board<BoardElement>(Data, dispatcher);
-            BoardManipulation = new BoardManipulation();
+            BoardManipulation = new BoardManipulation(Data);
         }
     }
 }

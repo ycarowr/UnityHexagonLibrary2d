@@ -1,53 +1,49 @@
 ﻿using HexCardGame.Runtime.GameBoard;
 using HexCardGame.SharedData;
+using Tools.Extensions.Arrays;
 using UnityEngine;
 
 namespace HexCardGame.Runtime
 {
     public class BoardManipulation : IBoardManipulation
     {
-        readonly Vector3Int[][] _oddrDirections;
-
-        public BoardManipulation()
+        readonly Hex[] _neighbours = 
         {
-            _oddrDirections = new Vector3Int[2][];
-            _oddrDirections[0] = new[]
+            new Hex(1, 0), new Hex(1, -1), new Hex(0, -1),
+            new Hex(-1, 0), new Hex(-1, 1), new Hex(0, 1)
+        };
+        
+        readonly Hex[] _hexPositions;
+        
+        public BoardManipulation(BoardData data) => _hexPositions = data.GetHexPositions();
+
+        public Hex[] GetNeighbours(Hex hex)
+        {
+            Debug.Log($"Get: x{hex}");
+            var neighbours = new Hex[] { };
+            var center = Get(hex);
+            center.Print();
+            foreach (var direction in _neighbours)
             {
-                new Vector3Int(+1, 0, 0),
-                new Vector3Int(0, -1, 0),
-                new Vector3Int(-1, -1, 0),
-                new Vector3Int(-1, 0, 0),
-                new Vector3Int(-1, +1, 0),
-                new Vector3Int(0, +1, 0)
-            };
-            _oddrDirections[1] = new[]
-            {
-                new Vector3Int(+1, 0, 0),
-                new Vector3Int(+1, -1, 0),
-                new Vector3Int(0, -1, 0),
-                new Vector3Int(-1, 0, 0),
-                new Vector3Int(0, +1, 0),
-                new Vector3Int(+1, +1, 0)
-            };
+                var neighbour = HexHelper.Add(center[0], direction);
+                var array = new[] {neighbour};
+                neighbours = neighbours.Merge(array);
+            }
+
+            return neighbours;
         }
 
-        public Vector3Int[] GetNeighbours(int x, int y)
+        public Hex[] Get(Hex hex)
         {
-            var parity = y & 1;
-            var currentDirection = _oddrDirections[parity];
-            var neighbors = new Vector3Int[] { };
-            foreach (var direction in currentDirection)
-                neighbors = neighbors.Merge(Get(direction.x + x, direction.y + y));
-            return neighbors;
+            foreach (var i in _hexPositions)
+            {
+                Debug.Log(i);
+                if (i == hex)
+                    return new[] {i};
+            }
+
+            return new Hex[]{};
         }
-
-        public Vector3Int[] Get(int x, int y) => new[] {new Vector3Int(x, y, 0)};
-        public Vector3Int[] GetVertical(Vector3Int direction) => GetVertical(direction, 10);
-
-        public Vector3Int[] GetHorizontal(Vector3Int direction) => new Vector3Int[1];
-        public Vector3Int[] GetDiagonalAscendant(Vector3Int direction) => GetAllDiagonalAscendant(direction, 10);
-        public Vector3Int[] GetDiagonalDescendent(Vector3Int direction) => GetAllDiagonalDescendant(direction, 10);
-
 
         #region Sequence
 
@@ -88,28 +84,28 @@ namespace HexCardGame.Runtime
             return diagDescendant;
         }
 
-        public Vector3Int[] GetAllDiagonalAscendant(Vector3Int position, int n)
+        public Hex[] GetAllDiagonalAscendant(Hex hex, int n)
         {
-            var diagAscendant = new Vector3Int[n];
-            var x = position.x;
-            var y = position.y;
-
-            diagAscendant = diagAscendant.Merge(Get(x, y));
-
-            Vector3Int[] positions;
-            for (var i = 1; i < 10; i++)
-            {
-                positions = Get(x - i, y + i);
-                if(positions != null)
-                    diagAscendant = diagAscendant.Merge(positions);
-            }
-
-            for (var i = 1; i < 10; i++)
-            {
-                positions = Get(x + i, y - i);
-                if(positions != null)
-                    diagAscendant = diagAscendant.Merge(positions);
-            }
+            var diagAscendant = new Hex[n];
+//            var x = position.x;
+//            var y = position.y;
+//
+//            diagAscendant = diagAscendant.Merge(Get(x, y));
+//
+//            Hex[] positions;
+//            for (var i = 1; i < 10; i++)
+//            {
+//                positions = Get(x - i, y + i);
+//                if(positions != null)
+//                    diagAscendant = diagAscendant.Merge(positions);
+//            }
+//
+//            for (var i = 1; i < 10; i++)
+//            {
+//                positions = Get(x + i, y - i);
+//                if(positions != null)
+//                    diagAscendant = diagAscendant.Merge(positions);
+//            }
 
             return diagAscendant;
         }

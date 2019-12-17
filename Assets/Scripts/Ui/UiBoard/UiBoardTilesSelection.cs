@@ -17,13 +17,14 @@ namespace HexCardGame.UI
 
         Vector3Int Selection { get; set; }
 
-        void IOnRightClickTile.OnRightClickTile(Vector3Int position, Vector2 screenPosition)
+        void IOnRightClickTile.OnRightClickTile(Vector3Int cell, Vector2 screenPoint)
         {
             var rect = menu.rect;
             var offsetX = rect.size.x / 2;
             var offsetY = -rect.size.y / 2;
-            menu.anchoredPosition = screenPosition + new Vector2(offsetX, offsetY);
-            Selection = position;
+            menu.anchoredPosition = screenPoint + new Vector2(offsetX, offsetY);
+            Debug.Log($"Tile Selected {cell}");
+            Selection = cell;
             Show();
         }
 
@@ -38,8 +39,10 @@ namespace HexCardGame.UI
 
         void OnPressNeighbours()
         {
-            var selection = FindObjectOfType<BoardController>().BoardManipulation.GetNeighbours(Selection.x, Selection.y);
-            boardHighlight.Show(selection);
+            var hex = FindObjectOfType<UiBoard>().GetHex(Selection);
+            Debug.Log(hex);
+            var hexes = FindObjectOfType<BoardController>().BoardManipulation.GetNeighbours(hex);
+            boardHighlight.Show(hexes);
             Hide();
         }
         

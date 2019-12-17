@@ -9,8 +9,8 @@ namespace HexCardGame.UI
 {
     public class UiBoardHightlight : UiEventListener, ICreateBoard<BoardElement>
     {
-        readonly Dictionary<Vector3Int, UiHoverParticleSystem> _highlights =
-            new Dictionary<Vector3Int, UiHoverParticleSystem>();
+        readonly Dictionary<Hex, UiHoverParticleSystem> _highlights =
+            new Dictionary<Hex, UiHoverParticleSystem>();
 
         [SerializeField] GameObject highlightTiles;
         Tilemap TileMap { get; set; }
@@ -19,12 +19,14 @@ namespace HexCardGame.UI
         {
             foreach (var p in board.Positions)
             {
-                var v3IntPosition = HexHelper.YOffsetFromCubeEven(p.Hex);
-                var worldPosition = TileMap.CellToWorld(v3IntPosition);
+                var hex = p.Hex;
+                var cell = hex.ToOffsetCoord();
+                var worldPosition = TileMap.CellToWorld(cell);
                 var highlight = Instantiate(highlightTiles, worldPosition, Quaternion.identity, transform)
                     .GetComponent<UiHoverParticleSystem>();
-                if (!_highlights.ContainsKey(p.Hex))
-                    _highlights.Add(v3IntPosition, highlight);
+                highlight.name = hex.ToString();
+                if (!_highlights.ContainsKey(hex))
+                    _highlights.Add(hex, highlight);
             }
         }
 
@@ -41,7 +43,7 @@ namespace HexCardGame.UI
                 i.Hide();
         }
 
-        public void Show(Vector3Int[] positions)
+        public void Show(Hex[] positions)
         {
             Hide();
             foreach (var i in positions)
