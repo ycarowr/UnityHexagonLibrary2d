@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Ui
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class UiTmpTextListener : MonoBehaviour
+    public class UiTmpText : MonoBehaviour
     {
         TMP_Text _tmpText;
 

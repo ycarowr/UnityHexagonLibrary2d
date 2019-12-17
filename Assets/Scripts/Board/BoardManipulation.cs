@@ -1,4 +1,5 @@
 ﻿using HexCardGame.SharedData;
+using Tools.Extensions.Arrays;
 using UnityEngine;
 
 namespace HexCardGame.Runtime
