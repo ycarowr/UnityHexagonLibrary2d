@@ -1,4 +1,5 @@
-﻿using HexCardGame.Runtime.GameBoard;
+﻿using HexCardGame.Runtime;
+using HexCardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,22 +9,22 @@ namespace HexCardGame.UI
     {
         [SerializeField] UiBoardHightlight boardHighlight;
         [SerializeField] GameObject content;
+        [SerializeField] BoardController controller;
         [SerializeField] Button diagonalAscButton;
         [SerializeField] Button hideButton;
         [SerializeField] RectTransform menu;
         [SerializeField] Button neighboursButton;
         [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
 
-        Vector3Int Selection { get; set; }
+        Hex Selection { get; set; }
 
-        void OnRightClickTile(Vector3Int cell, Vector2 screenPoint)
+        void OnRightClickTile(Hex hex, Vector2 screenPoint)
         {
             var rect = menu.rect;
             var offsetX = rect.size.x / 2;
             var offsetY = -rect.size.y / 2;
             menu.anchoredPosition = screenPoint + new Vector2(offsetX, offsetY);
-            Debug.Log($"Tile Selected {cell}");
-            Selection = cell;
+            Selection = hex;
             Show();
         }
 
@@ -38,9 +39,7 @@ namespace HexCardGame.UI
 
         void OnPressNeighbours()
         {
-            var hex = FindObjectOfType<UiBoard>().GetHex(Selection);
-            Debug.Log(hex);
-            var hexes = FindObjectOfType<BoardController>().BoardManipulation.GetNeighbours(hex);
+            var hexes = controller.BoardManipulation.GetNeighbours(Selection);
             boardHighlight.Show(hexes);
             Hide();
         }

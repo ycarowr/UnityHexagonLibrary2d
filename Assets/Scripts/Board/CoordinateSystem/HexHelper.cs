@@ -4,16 +4,17 @@ namespace HexCardGame.Runtime
 {
     public static class HexHelper
     {
+        const int Even = -1;
+        const int Odd = 1;
+
         public static Hex Add(Hex a, Hex b) => new Hex(a.x + b.x, a.y + b.y);
         public static Hex Subtract(Hex a, Hex b) => new Hex(a.x - b.x, a.y - b.y);
         public static Hex Multiply(Hex a, int k) => new Hex(a.x * k, a.y * k);
         public static int Distance(Hex a, Hex b) => Subtract(a, b).Length;
-
+        public static OffsetCoord YOffsetFromCubeEven(Hex h) => YOffsetFromCube(Even, h);
+        public static Hex YOffsetToCubeEven(OffsetCoord offset) => YOffsetToCube(Even, offset);
 
         #region Flat - Top
-
-        public const int Even = -1;
-        public const int Odd = 1;
 
         public static OffsetCoord XOffsetFromCube(int offset, Hex h)
         {
@@ -51,9 +52,6 @@ namespace HexCardGame.Runtime
             var r = h.x;
             return new Hex(q, r);
         }
-
-        public static OffsetCoord YOffsetFromCubeEven(Hex h) => YOffsetFromCube(Even, h);
-        public static Hex YOffsetToCubeEven(OffsetCoord offset) => YOffsetToCube(Even, offset);
 
         #endregion
     }

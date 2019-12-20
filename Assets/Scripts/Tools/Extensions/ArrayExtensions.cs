@@ -51,7 +51,7 @@ namespace Tools.Extensions.Arrays
 
             Debug.Log(log);
         }
-        
+
         public static T[] Merge<T>(this T[] array, T[] other)
         {
             var size = array.Length + other.Length;

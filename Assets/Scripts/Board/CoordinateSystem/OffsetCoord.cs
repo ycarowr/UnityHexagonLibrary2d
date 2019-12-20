@@ -14,10 +14,8 @@ public struct OffsetCoord
 
     public Hex ToHex() => HexHelper.YOffsetToCubeEven(this);
     public Vector3Int ToVector3Int() => new Vector3Int(x, y, 0);
-    static Vector3Int AsVector3Int(OffsetCoord offset) => new Vector3Int(offset.x, offset.y, 0);
-    static Vector2Int AsVector2Int(OffsetCoord offset) => new Vector2Int(offset.x, offset.y);
-    public static implicit operator Vector3Int(OffsetCoord p) => AsVector3Int(p);
-    public static implicit operator Vector2Int(OffsetCoord p) => AsVector2Int(p);
+    public static implicit operator Vector3Int(OffsetCoord p) => new Vector3Int(p.x, p.y, 0);
+    public static implicit operator Vector2Int(OffsetCoord p) => new Vector2Int(p.x, p.y);
 
     public override string ToString() => $"Offset: (x: {x}, y: {y})";
 }

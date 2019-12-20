@@ -169,13 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69c33e2b0ec0664a82bad73936e397e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiTileMapInputHandler: {fileID: 3301168601776931346}
+  uiBoard: {fileID: 763083043017353474}
+  controller: {fileID: 1632720898}
   boardHighlight: {fileID: 3424475816214135634}
   content: {fileID: 39363771}
+  diagonalAscButton: {fileID: 5641721392344631337}
   hideButton: {fileID: 576934617}
   menu: {fileID: 346516739}
   neighboursButton: {fileID: 1114925551}
-  diagonalAscButton: {fileID: 5641721392344631337}
+  uiTileMapInputHandler: {fileID: 3301168601776931346}
 --- !u!1 &33755305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,8 +5755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35af99b372c545b41aa32288bbb57182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 11400000, guid: 79a31050b51c53048bec2a5ae158fa16, type: 2}
   controller: {fileID: 1632720898}
+  test: {fileID: 11400000, guid: 79a31050b51c53048bec2a5ae158fa16, type: 2}
 --- !u!224 &987655595794170523
 RectTransform:
   m_ObjectHideFlags: 0

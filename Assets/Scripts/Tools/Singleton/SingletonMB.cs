@@ -7,7 +7,7 @@ namespace Tools.Patterns.Singleton
     {
         static readonly object locker = new object();
 
-        [Tooltip("Mark it whether this singleton will be destroyed when the scene changes"), SerializeField] 
+        [Tooltip("Mark it whether this singleton will be destroyed when the scene changes"), SerializeField]
         bool isDontDestroyOnLoad;
 
         [Tooltip(

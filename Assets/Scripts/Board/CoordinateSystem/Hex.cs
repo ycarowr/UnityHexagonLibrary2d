@@ -10,13 +10,6 @@ namespace HexCardGame.Runtime
         public int y { get; } //row, Y axis
         public int z { get; }
 
-        public Hex(int x, int y, int z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
         public Hex(int x, int y)
         {
             this.x = x;
