@@ -52,7 +52,12 @@ namespace Tools.Extensions.Arrays
             Debug.Log(log);
         }
 
-        public static T[] Merge<T>(this T[] array, T[] other)
+        public static T[] Append<T>(this T[] array, T[] other) => ArrayHelper.Append(ref array, other);
+    }
+
+    public static class ArrayHelper
+    {
+        public static T[] Append<T>(ref T[] array, T[] other)
         {
             var size = array.Length + other.Length;
             var merge = new T[size];

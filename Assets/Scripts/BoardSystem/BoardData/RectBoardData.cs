@@ -10,16 +10,17 @@ namespace HexCardGame.SharedData
         [Range(1, 10)] public int height;
         [Range(1, 10)] public int width;
 
-        public override Hex[] GetHexPositions()
+        public override Hex[] GetHexPoints()
         {
-            var positions = new List<Hex>();
-            for (var y = 0; y < height; y++)
+            var points = new List<Hex>();
+            for (var y = -height / 2; y < height / 2; y++)
             {
-                var yOffset = Mathf.FloorToInt(y / 2); // or r>>1
-                for (var x = -yOffset; x < width - yOffset; x++) positions.Add(new Hex(x, y));
+                var yOffset = y >> 1;
+                for (var x = -yOffset; x < width - yOffset; x++)
+                    points.Add(new Hex(x, y));
             }
 
-            return positions.ToArray();
+            return points.ToArray();
         }
     }
 }

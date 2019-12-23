@@ -12,7 +12,7 @@ namespace HexCardGame.SharedData
         [Range(-10, 10)] public int yMax;
         [Range(-10, 10)] public int yMin;
 
-        public override Hex[] GetHexPositions()
+        public override Hex[] GetHexPoints()
         {
             var positions = new List<Hex>();
             for (var q = xMin; q <= xMax; q++)

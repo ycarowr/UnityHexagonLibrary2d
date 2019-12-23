@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fa0a98a6a682645bb1ecdec201a9cb, type: 3}
   m_Name: RectBoardData
   m_EditorClassIdentifier: 
-  width: 5
-  height: 5
+  height: 6
+  width: 6

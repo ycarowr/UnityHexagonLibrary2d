@@ -7,7 +7,7 @@
 //        Vector3Int[] Get(int x, int y);
 //        Vector3Int[] GetVertical(int x, int y);
 //        Vector3Int[] GetHorizontal(int x, int y);
-        Hex[] GetAllDiagonalAscendant(Hex hex, int n);
-//        Vector3Int[] GetDiagonalDescendent(int x, int y);
+        Hex[] GetDiagonalAscendant(Hex center, int length);
+        Hex[] GetDiagonalDescendant(Hex center, int length);
     }
 }

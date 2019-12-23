@@ -48,7 +48,7 @@ namespace HexCardGame.UI
         {
             var worldPosition = Camera.ScreenToWorldPoint(screenPoint);
             var cell = TileMap.WorldToCell(worldPosition);
-            var hex = UiBoard.GetHex(cell);
+            var hex = UiBoard.GetHexFromCurrentLayout(cell);
             return hex;
         }
     }

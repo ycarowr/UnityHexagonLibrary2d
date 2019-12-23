@@ -1,4 +1,5 @@
 ﻿using HexCardGame.Runtime.GameBoard;
+using HexCardGame.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -25,12 +26,13 @@ namespace Game.Ui
             for (var i = 0; i < CurrentBoard.Positions.Length; i++)
             {
                 var hex = CurrentBoard.Positions[i].Hex;
-                var cell = hex.ToOffsetCoord();
+                var cell = UiBoard.GetOffsetFromCurrentLayout(hex);
                 var worldPosition = tileMap.CellToWorld(cell);
                 var gameObj = Instantiate(textPosition, worldPosition, identity, transform);
                 _positions[i] = gameObj;
                 var tmpText = gameObj.GetComponent<TMP_Text>();
-                var sPosition = $"x:{hex.x}\ny:{hex.y}";
+                var sPosition = $"x:{hex.q}\ny:{hex.r}\nz:{hex.s}";
+//                var sPosition = $"x:{cell.x}\ny:{cell.y}";
                 tmpText.text = sPosition;
                 tmpText.name = uiPosition + sPosition;
             }
@@ -48,9 +50,9 @@ namespace Game.Ui
 
         void OnDrawGizmos()
         {
-            foreach (var hex in controller.Data.GetHexPositions())
+            foreach (var hex in controller.Data.GetHexPoints())
             {
-                var cell = hex.ToOffsetCoord();
+                var cell = UiBoard.GetOffsetFromCurrentLayout(hex);
                 var worldPosition = tileMap.CellToWorld(cell);
                 Gizmos.DrawWireSphere(worldPosition, 0.93f);
             }

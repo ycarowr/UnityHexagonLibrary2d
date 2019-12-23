@@ -27,7 +27,7 @@ namespace HexCardGame.Runtime.GameBoard
 
         public void GeneratePositions()
         {
-            var positions = Data.GetHexPositions();
+            var positions = Data.GetHexPoints();
             Positions = new Position[positions.Length];
             for (var index = 0; index < positions.Length; index++)
             {
@@ -45,9 +45,9 @@ namespace HexCardGame.Runtime.GameBoard
         {
             foreach (var i in Positions)
             {
-                if (i.Hex.x != x)
+                if (i.Hex.q != x)
                     continue;
-                if (i.Hex.y == y)
+                if (i.Hex.r == y)
                     return i;
             }
 

@@ -11,6 +11,7 @@ namespace HexCardGame.UI
         [SerializeField] GameObject content;
         [SerializeField] BoardController controller;
         [SerializeField] Button diagonalAscButton;
+        [SerializeField] Button diagonalDesButton;
         [SerializeField] Button hideButton;
         [SerializeField] RectTransform menu;
         [SerializeField] Button neighboursButton;
@@ -32,6 +33,7 @@ namespace HexCardGame.UI
         {
             hideButton.onClick.AddListener(Hide);
             neighboursButton.onClick.AddListener(OnPressNeighbours);
+            diagonalDesButton.onClick.AddListener(OnPressDiagonalDes);
             diagonalAscButton.onClick.AddListener(OnPressDiagonalAsc);
             uiTileMapInputHandler.OnRightClickTile += OnRightClickTile;
             Hide();
@@ -44,11 +46,18 @@ namespace HexCardGame.UI
             Hide();
         }
 
+        void OnPressDiagonalDes()
+        {
+            var selection = controller.BoardManipulation.GetDiagonalDescendant(Selection, 10);
+            boardHighlight.Show(selection);
+            Hide();
+        }
+
         void OnPressDiagonalAsc()
         {
-//            var selection = GameData.CurrentGameInstance.BoardManipulation.GetAllDiagonalAscendant(Selection, 10);
-//            boardHighlight.Show(selection);
-//            Hide();
+            var selection = controller.BoardManipulation.GetDiagonalAscendant(Selection, 10);
+            boardHighlight.Show(selection);
+            Hide();
         }
 
 

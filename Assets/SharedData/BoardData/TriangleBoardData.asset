@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4599d3ac019dfd44ca0fbd4372252b3c, type: 3}
   m_Name: TriangleBoardData
   m_EditorClassIdentifier: 
-  size: 10
+  size: 2

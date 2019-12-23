@@ -31,13 +31,21 @@ namespace HexCardGame.UI
             foreach (var pos in CurrentBoard.Positions)
             {
                 var hex = pos.Hex;
-                var offset = hex.ToOffsetCoord();
-                var cell = offset.ToVector3Int();
+                var cell = GetOffsetFromCurrentLayout(hex);
                 _register.Add(cell, hex);
                 TileMap.SetTile(cell, test);
             }
         }
 
-        public Hex GetHex(Vector3Int cell) => _register[cell];
+        /// <summary>
+        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap.
+        /// </summary>
+        public static Hex GetHexFromCurrentLayout(Vector3Int cell) =>
+            OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
+
+        /// <summary>
+        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap.
+        /// </summary>
+        public static Vector3Int GetOffsetFromCurrentLayout(Hex hex) => hex.ToRoffsetOdd().ToVector3Int();
     }
 }

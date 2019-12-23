@@ -9,18 +9,18 @@ namespace HexCardGame.SharedData
     {
         [Range(0, 10)] public int radius;
 
-        public override Hex[] GetHexPositions()
+        public override Hex[] GetHexPoints()
         {
-            var positions = new List<Hex>();
+            var points = new List<Hex>();
             for (var x = -radius; x <= radius; x++)
             {
                 var yMin = Mathf.Max(-radius, -x - radius);
                 var yMax = Mathf.Min(radius, -x + radius);
                 for (var y = yMin; y <= yMax; y++)
-                    positions.Add(new Hex(x, y));
+                    points.Add(new Hex(x, y));
             }
 
-            return positions.ToArray();
+            return points.ToArray();
         }
     }
 }

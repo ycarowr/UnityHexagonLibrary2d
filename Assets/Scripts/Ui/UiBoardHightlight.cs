@@ -20,7 +20,7 @@ namespace HexCardGame.UI
             foreach (var p in board.Positions)
             {
                 var hex = p.Hex;
-                var cell = hex.ToOffsetCoord();
+                var cell = UiBoard.GetOffsetFromCurrentLayout(hex);
                 var worldPosition = TileMap.CellToWorld(cell);
                 var highlight = Instantiate(highlightTiles, worldPosition, Quaternion.identity, transform)
                     .GetComponent<UiHoverParticleSystem>();

@@ -9,7 +9,7 @@ namespace HexCardGame.SharedData
     {
         [Range(1, 10)] public int size;
 
-        public override Hex[] GetHexPositions()
+        public override Hex[] GetHexPoints()
         {
             var positions = new List<Hex>();
             for (var x = 0; x <= size; x++)
