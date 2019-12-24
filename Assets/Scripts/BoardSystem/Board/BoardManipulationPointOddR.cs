@@ -1,4 +1,5 @@
-﻿using HexCardGame.SharedData;
+﻿using System.Linq;
+using HexCardGame.SharedData;
 using Tools.Extensions.Arrays;
 using UnityEngine;
 
@@ -55,32 +56,32 @@ namespace HexCardGame.Runtime
 
         #region Sequence
 
-        public Hex[] GetVertical(Vector3Int direction, int length)
+        public Hex[] GetVertical(Vector3Int cell, int length) => new Hex[] { };
+
+        public Hex[] GetHorizontal(Vector3Int cell, int length)
         {
-            var vertical = new Hex[length];
-//            if (length > 0)
-//            {
-//                for (var i = 0; i <= length; i++)
-//                    vertical = vertical.Merge(Get(x + i, y));
-//            }
-//            else
-//            {
-//                for (var i = 0; i <= -length; i++)
-//                    vertical = vertical.Merge(Get(x - i, y));
-//            }
+            var center = GetHexCoordinate(cell);
+            var halfLength = length / 2;
+            var points = Get(center);
+            var x = center.q;
+            var y = center.r;
+            
+            for (var i = 1; i <= halfLength; i++)
+                points = points.Append(Get(new Hex(x + i, y)));
 
-            return vertical;
+            for (var i = -1; i >= -halfLength; i--)
+                points = points.Append(Get(new Hex(x + i, y)));
+            
+            return points;
         }
-
-        public Hex[] GetHorizontal(Vector3Int cell, int length) => new Hex[] { };
 
         public Hex[] GetDiagonalAscendant(Vector3Int cell, int length)
         {
             var center = GetHexCoordinate(cell);
+            var halfLength = length / 2;
             var points = Get(center);
             var x = center.q;
             var y = center.r;
-            var halfLength = length / 2;
 
             //Upper part
             for (var i = 1; i <= halfLength; i++)
@@ -96,10 +97,10 @@ namespace HexCardGame.Runtime
         public Hex[] GetDiagonalDescendant(Vector3Int cell, int length)
         {
             var center = GetHexCoordinate(cell);
+            var halfLength = length / 2;
             var points = Get(center);
             var x = center.q;
             var y = center.r;
-            var halfLength = length / 2;
 
             //Upper part
             for (var i = 1; i <= halfLength; i++)

@@ -6,15 +6,19 @@ namespace HexCardGame.UI
 {
     public class UiBoardTilesSelection : MonoBehaviour
     {
-        [SerializeField] UiBoardHightlight boardHighlight;
+        const int ABigLength = 10;
+        [Header("Internal Components")]
         [SerializeField] GameObject content;
-        [SerializeField] BoardController controller;
-        [SerializeField] Button diagonalAscButton;
-        [SerializeField] Button diagonalDesButton;
-        [SerializeField] Button hideButton;
-        [SerializeField] RectTransform menu;
-        [SerializeField] Button neighboursButton;
         [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
+        [SerializeField] UiBoardHightlight boardHighlight;
+        [SerializeField] BoardController controller;
+        [SerializeField] RectTransform menu;
+        [Header("Buttons")]
+        [SerializeField] Button hideButton;
+        [SerializeField] Button neighboursButton;
+        [SerializeField] Button diagonalDesButton;
+        [SerializeField] Button diagonalAscButton;
+        [SerializeField] Button horizontalButton;
 
         Vector3Int Selection { get; set; }
 
@@ -34,6 +38,7 @@ namespace HexCardGame.UI
             neighboursButton.onClick.AddListener(OnPressNeighbours);
             diagonalDesButton.onClick.AddListener(OnPressDiagonalDes);
             diagonalAscButton.onClick.AddListener(OnPressDiagonalAsc);
+            horizontalButton.onClick.AddListener(OnPressHorizontal);
             uiTileMapInputHandler.OnRightClickTile += OnRightClickTile;
             Hide();
         }
@@ -47,14 +52,21 @@ namespace HexCardGame.UI
 
         void OnPressDiagonalDes()
         {
-            var selection = controller.BoardManipulation.GetDiagonalDescendant(Selection, 10);
+            var selection = controller.BoardManipulation.GetDiagonalDescendant(Selection, ABigLength);
             boardHighlight.Show(selection);
             Hide();
         }
 
         void OnPressDiagonalAsc()
         {
-            var selection = controller.BoardManipulation.GetDiagonalAscendant(Selection, 10);
+            var selection = controller.BoardManipulation.GetDiagonalAscendant(Selection, ABigLength);
+            boardHighlight.Show(selection);
+            Hide();
+        }
+        
+        void OnPressHorizontal()
+        {
+            var selection = controller.BoardManipulation.GetHorizontal(Selection, ABigLength);
             boardHighlight.Show(selection);
             Hide();
         }
