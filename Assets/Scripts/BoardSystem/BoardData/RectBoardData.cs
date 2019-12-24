@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HexCardGame.Runtime;
+using Tools.Extensions.List;
 using UnityEngine;
 
 namespace HexCardGame.SharedData
@@ -9,18 +10,23 @@ namespace HexCardGame.SharedData
     {
         [Range(1, 10)] public int height;
         [Range(1, 10)] public int width;
+        readonly List<Hex> _points = new List<Hex>();
 
         public override Hex[] GetHexPoints()
         {
-            var points = new List<Hex>();
-            for (var y = -height / 2; y < height / 2; y++)
+            _points.Clear();
+            var halfHeight = height / 2;
+            var halfWidth = width / 2;
+            for (var y = -halfHeight; y < halfHeight; y++)
             {
-                var yOffset = y >> 1;
-                for (var x = -yOffset; x < width - yOffset; x++)
-                    points.Add(new Hex(x, y));
+                var fraction = y / 2f;
+                var yOffset = Mathf.FloorToInt(fraction);
+
+                for (var x = -yOffset - halfWidth; x < halfWidth - yOffset; x++)
+                    _points.Add(new Hex(x, y));
             }
 
-            return points.ToArray();
+            return _points.ToArray();
         }
     }
 }

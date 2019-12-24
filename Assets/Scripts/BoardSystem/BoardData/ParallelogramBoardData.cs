@@ -11,15 +11,16 @@ namespace HexCardGame.SharedData
         [Range(-10, 10)] public int xMin;
         [Range(-10, 10)] public int yMax;
         [Range(-10, 10)] public int yMin;
+        readonly List<Hex> _points = new List<Hex>();
 
         public override Hex[] GetHexPoints()
         {
-            var positions = new List<Hex>();
+            _points.Clear();
             for (var q = xMin; q <= xMax; q++)
             for (var r = yMin; r <= yMax; r++)
-                positions.Add(new Hex(q, r));
+                _points.Add(new Hex(q, r));
 
-            return positions.ToArray();
+            return _points.ToArray();
         }
     }
 }

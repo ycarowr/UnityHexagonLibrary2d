@@ -8,19 +8,20 @@ namespace HexCardGame.SharedData
     public class HexagonalBoardData : BoardData
     {
         [Range(0, 10)] public int radius;
+        readonly List<Hex> _points = new List<Hex>();
 
         public override Hex[] GetHexPoints()
         {
-            var points = new List<Hex>();
+            _points.Clear();
             for (var x = -radius; x <= radius; x++)
             {
                 var yMin = Mathf.Max(-radius, -x - radius);
                 var yMax = Mathf.Min(radius, -x + radius);
                 for (var y = yMin; y <= yMax; y++)
-                    points.Add(new Hex(x, y));
+                    _points.Add(new Hex(x, y));
             }
 
-            return points.ToArray();
+            return _points.ToArray();
         }
     }
 }

@@ -8,15 +8,17 @@ namespace HexCardGame.SharedData
     public class TriangleBoardData : BoardData
     {
         [Range(1, 10)] public int size;
+        readonly List<Hex> _points = new List<Hex>();
 
         public override Hex[] GetHexPoints()
         {
-            var positions = new List<Hex>();
-            for (var x = 0; x <= size; x++)
-            for (var y = 0; y <= size - x; y++)
-                positions.Add(new Hex(x, y));
+            _points.Clear();
 
-            return positions.ToArray();
+            var halfSize = size / 2;
+            for (var x = -halfSize; x <= size; x++)
+            for (var y = -halfSize; y <= halfSize -x; y++) 
+                _points.Add(new Hex(x, y));
+            return _points.ToArray();
         }
     }
 }
