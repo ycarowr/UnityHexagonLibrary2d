@@ -14,9 +14,9 @@ namespace HexCardGame.Runtime.GameBoard
         void Start()
         {
             Board = new Board(this, Data);
-            BoardManipulation = new BoardManipulation(Data);
+            BoardManipulation = new BoardManipulationPointOddR(Data);
         }
 
-        public void HandleCreateBoard(IBoard board) => OnCreateBoard(board);
+        public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
     }
 }

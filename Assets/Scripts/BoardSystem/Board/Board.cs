@@ -54,6 +54,6 @@ namespace HexCardGame.Runtime.GameBoard
             return null;
         }
 
-        void OnCreateBoard() => Controller.HandleCreateBoard(this);
+        void OnCreateBoard() => Controller.DispatchCreateBoard(this);
     }
 }

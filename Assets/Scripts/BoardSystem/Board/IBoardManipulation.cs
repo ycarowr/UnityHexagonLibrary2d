@@ -1,13 +1,14 @@
-﻿namespace HexCardGame.Runtime
+﻿using UnityEngine;
+
+namespace HexCardGame.Runtime
 {
     public interface IBoardManipulation
     {
-        Hex[] GetNeighbours(Hex hex);
-
-//        Vector3Int[] Get(int x, int y);
-//        Vector3Int[] GetVertical(int x, int y);
-//        Vector3Int[] GetHorizontal(int x, int y);
-        Hex[] GetDiagonalAscendant(Hex center, int length);
-        Hex[] GetDiagonalDescendant(Hex center, int length);
+        bool Exists(Vector3Int cell);
+        Hex[] GetNeighbours(Vector3Int cell);
+        Hex[] GetVertical(Vector3Int cell, int length);
+        Hex[] GetHorizontal(Vector3Int cell, int length);
+        Hex[] GetDiagonalAscendant(Vector3Int cell, int length);
+        Hex[] GetDiagonalDescendant(Vector3Int cell, int length);
     }
 }

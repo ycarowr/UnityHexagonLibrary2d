@@ -1,5 +1,4 @@
 ﻿using System;
-using HexCardGame.Runtime;
 using Tools.Input.Mouse;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,13 +14,13 @@ namespace HexCardGame.UI
         Tilemap TileMap { get; set; }
         UiBoard UiBoard { get; set; }
         IMouseInput Input { get; set; }
-        public event Action<Hex> OnClickTile = tile => { };
-        public event Action<Hex, Vector2> OnRightClickTile = (hex, screenPoint) => { };
+        public event Action<Vector3Int> OnClickTile = tile => { };
+        public event Action<Vector3Int, Vector2> OnRightClickTile = (hex, screenPoint) => { };
 
         void OnPointerClick(PointerEventData eventData)
         {
             var screenPosition = eventData.position;
-            var hex = ConvertPixelToHex(screenPosition);
+            var hex = ConvertPixelToCell(screenPosition);
             switch (eventData.button)
             {
                 case PointerEventData.InputButton.Left:
@@ -42,14 +41,11 @@ namespace HexCardGame.UI
             Input.OnPointerClick += OnPointerClick;
         }
 
-        //TODO: Make a proper conversion. Currently a hash map is taking care of 
-        //TODO: storing the pairs Cell - Hex, which demands a bit more memory allocation
-        Hex ConvertPixelToHex(Vector2 screenPoint)
+        Vector3Int ConvertPixelToCell(Vector2 screenPoint)
         {
             var worldPosition = Camera.ScreenToWorldPoint(screenPoint);
             var cell = TileMap.WorldToCell(worldPosition);
-            var hex = UiBoard.GetHexFromCurrentLayout(cell);
-            return hex;
+            return cell;
         }
     }
 }

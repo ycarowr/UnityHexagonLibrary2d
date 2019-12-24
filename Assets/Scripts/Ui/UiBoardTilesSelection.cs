@@ -1,5 +1,4 @@
-﻿using HexCardGame.Runtime;
-using HexCardGame.Runtime.GameBoard;
+﻿using HexCardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,15 +16,15 @@ namespace HexCardGame.UI
         [SerializeField] Button neighboursButton;
         [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
 
-        Hex Selection { get; set; }
+        Vector3Int Selection { get; set; }
 
-        void OnRightClickTile(Hex hex, Vector2 screenPoint)
+        void OnRightClickTile(Vector3Int selection, Vector2 screenPoint)
         {
             var rect = menu.rect;
             var offsetX = rect.size.x / 2;
             var offsetY = -rect.size.y / 2;
             menu.anchoredPosition = screenPoint + new Vector2(offsetX, offsetY);
-            Selection = hex;
+            Selection = selection;
             Show();
         }
 
