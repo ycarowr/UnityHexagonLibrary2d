@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using HexCardGame.SharedData;
+﻿using HexCardGame.SharedData;
 using Tools.Extensions.Arrays;
 using UnityEngine;
 
@@ -8,8 +7,6 @@ namespace HexCardGame.Runtime
     public class BoardManipulationPointOddR : IBoardManipulation
     {
         readonly Hex[] _hexPoints;
-        readonly int _max;
-        readonly int _min;
 
         readonly Hex[] _neighbours =
         {
@@ -17,12 +14,7 @@ namespace HexCardGame.Runtime
             new Hex(-1, 0), new Hex(-1, 1), new Hex(0, 1)
         };
 
-        public BoardManipulationPointOddR(BoardData data)
-        {
-            _hexPoints = data.GetHexPoints();
-            _max = Mathf.Max(data.MaxX, data.MaxY);
-            _min = Mathf.Min(data.MinY, data.MinY);
-        }
+        public BoardManipulationPointOddR(BoardData data) => _hexPoints = data.GetHexPoints();
 
         public Hex[] GetNeighbours(Vector3Int cell)
         {
@@ -65,13 +57,13 @@ namespace HexCardGame.Runtime
             var points = Get(center);
             var x = center.q;
             var y = center.r;
-            
+
             for (var i = 1; i <= halfLength; i++)
                 points = points.Append(Get(new Hex(x + i, y)));
 
             for (var i = -1; i >= -halfLength; i--)
                 points = points.Append(Get(new Hex(x + i, y)));
-            
+
             return points;
         }
 

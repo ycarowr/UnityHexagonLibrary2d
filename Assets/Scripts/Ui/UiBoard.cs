@@ -26,6 +26,7 @@ namespace HexCardGame.UI
 
         void CreateBoardUi()
         {
+            TileMap.ClearAllTiles();
             foreach (var pos in CurrentBoard.Positions)
             {
                 var hex = pos.Hex;

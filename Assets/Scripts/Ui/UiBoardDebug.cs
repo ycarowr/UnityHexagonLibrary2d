@@ -50,7 +50,7 @@ namespace Game.Ui
 
         void OnDrawGizmos()
         {
-            foreach (var hex in controller.Data.GetHexPoints())
+            foreach (var hex in controller.data.GetHexPoints())
             {
                 var cell = BoardManipulationPointOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);

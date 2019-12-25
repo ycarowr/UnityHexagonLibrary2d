@@ -7,14 +7,16 @@ namespace HexCardGame.SharedData
     [CreateAssetMenu(menuName = "Data/ParallelogramData", fileName = "ParallelogramData")]
     public class ParallelogramBoardData : BoardData
     {
-        [Range(-10, 10)] public int xMax;
-        [Range(-10, 10)] public int xMin;
-        [Range(-10, 10)] public int yMax;
-        [Range(-10, 10)] public int yMin;
         readonly List<Hex> _points = new List<Hex>();
+        [Range(2, 10)] public int height;
+        [Range(2, 10)] public int width;
 
         public override Hex[] GetHexPoints()
         {
+            var xMin = -width / 2;
+            var xMax = width / 2;
+            var yMin = -height / 2;
+            var yMax = height / 2;
             _points.Clear();
             for (var q = xMin; q <= xMax; q++)
             for (var r = yMin; r <= yMax; r++)

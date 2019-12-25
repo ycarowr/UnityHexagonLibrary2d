@@ -7,8 +7,8 @@ namespace HexCardGame.SharedData
     [CreateAssetMenu(menuName = "Data/BoardData", fileName = "HexagonalBoardData")]
     public class HexagonalBoardData : BoardData
     {
-        [Range(0, 10)] public int radius;
         readonly List<Hex> _points = new List<Hex>();
+        [Range(0, 10)] public int radius;
 
         public override Hex[] GetHexPoints()
         {
@@ -23,5 +23,7 @@ namespace HexCardGame.SharedData
 
             return _points.ToArray();
         }
+
+        public void SetRadius(int r) => radius = r;
     }
 }

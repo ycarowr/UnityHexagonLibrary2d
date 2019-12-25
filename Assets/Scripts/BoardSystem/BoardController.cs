@@ -6,17 +6,25 @@ namespace HexCardGame.Runtime.GameBoard
 {
     public class BoardController : MonoBehaviour
     {
-        public BoardData Data;
+        public BoardData data;
         public IBoard Board { get; private set; }
         public IBoardManipulation BoardManipulation { get; private set; }
         public event Action<IBoard> OnCreateBoard = board => { };
 
-        void Start()
+        void Start() => CreateBoard();
+
+        void CreateBoard()
         {
-            Board = new Board(this, Data);
-            BoardManipulation = new BoardManipulationPointOddR(Data);
+            Board = new Board(this, data);
+            BoardManipulation = new BoardManipulationPointOddR(data);
         }
 
         public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
+
+        public void SetBoarDataAndCreate(BoardData boardData)
+        {
+            data = boardData;
+            CreateBoard();
+        }
     }
 }

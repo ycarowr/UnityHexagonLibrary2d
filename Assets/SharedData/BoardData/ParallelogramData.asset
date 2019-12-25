@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd98e9fe2427376488f55e06ed636b68, type: 3}
   m_Name: ParallelogramData
   m_EditorClassIdentifier: 
-  xMin: -2
-  xMax: 2
-  yMin: -2
-  yMax: 2
+  width: 8
+  height: 4

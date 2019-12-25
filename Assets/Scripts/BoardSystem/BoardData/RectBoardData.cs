@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using HexCardGame.Runtime;
-using Tools.Extensions.List;
 using UnityEngine;
 
 namespace HexCardGame.SharedData
@@ -8,9 +7,9 @@ namespace HexCardGame.SharedData
     [CreateAssetMenu(menuName = "Data/RectBoardData", fileName = "RectBoardData")]
     public class RectBoardData : BoardData
     {
+        readonly List<Hex> _points = new List<Hex>();
         [Range(1, 10)] public int height;
         [Range(1, 10)] public int width;
-        readonly List<Hex> _points = new List<Hex>();
 
         public override Hex[] GetHexPoints()
         {

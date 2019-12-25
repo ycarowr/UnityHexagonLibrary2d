@@ -1,24 +1,22 @@
-﻿using HexCardGame.Runtime.GameBoard;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace HexCardGame.UI
 {
-    public class UiBoardTilesSelection : MonoBehaviour
+    public class UiBoardMenu : UiParentMenu
     {
-        const int ABigLength = 10;
-        [Header("Internal Components")]
-        [SerializeField] GameObject content;
-        [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
+        const int ABigLength = 12;
         [SerializeField] UiBoardHightlight boardHighlight;
-        [SerializeField] BoardController controller;
-        [SerializeField] RectTransform menu;
-        [Header("Buttons")]
-        [SerializeField] Button hideButton;
-        [SerializeField] Button neighboursButton;
-        [SerializeField] Button diagonalDesButton;
         [SerializeField] Button diagonalAscButton;
+        [SerializeField] Button diagonalDesButton;
         [SerializeField] Button horizontalButton;
+        [SerializeField] RectTransform menu;
+
+        [Header("Buttons"), SerializeField]
+        
+        Button neighboursButton;
+
+        [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
 
         Vector3Int Selection { get; set; }
 
@@ -34,7 +32,6 @@ namespace HexCardGame.UI
 
         void Awake()
         {
-            hideButton.onClick.AddListener(Hide);
             neighboursButton.onClick.AddListener(OnPressNeighbours);
             diagonalDesButton.onClick.AddListener(OnPressDiagonalDes);
             diagonalAscButton.onClick.AddListener(OnPressDiagonalAsc);
@@ -45,34 +42,30 @@ namespace HexCardGame.UI
 
         void OnPressNeighbours()
         {
-            var hexes = controller.BoardManipulation.GetNeighbours(Selection);
+            var hexes = boardController.BoardManipulation.GetNeighbours(Selection);
             boardHighlight.Show(hexes);
             Hide();
         }
 
         void OnPressDiagonalDes()
         {
-            var selection = controller.BoardManipulation.GetDiagonalDescendant(Selection, ABigLength);
+            var selection = boardController.BoardManipulation.GetDiagonalDescendant(Selection, ABigLength);
             boardHighlight.Show(selection);
             Hide();
         }
 
         void OnPressDiagonalAsc()
         {
-            var selection = controller.BoardManipulation.GetDiagonalAscendant(Selection, ABigLength);
+            var selection = boardController.BoardManipulation.GetDiagonalAscendant(Selection, ABigLength);
             boardHighlight.Show(selection);
             Hide();
         }
-        
+
         void OnPressHorizontal()
         {
-            var selection = controller.BoardManipulation.GetHorizontal(Selection, ABigLength);
+            var selection = boardController.BoardManipulation.GetHorizontal(Selection, ABigLength);
             boardHighlight.Show(selection);
             Hide();
         }
-
-
-        void Show() => content.SetActive(true);
-        void Hide() => content.SetActive(false);
     }
 }
