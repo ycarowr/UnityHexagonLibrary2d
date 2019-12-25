@@ -12,9 +12,7 @@ namespace HexCardGame.UI
         [SerializeField] Button horizontalButton;
         [SerializeField] RectTransform menu;
 
-        [Header("Buttons"), SerializeField]
-        
-        Button neighboursButton;
+        [Header("Buttons"), SerializeField] Button neighboursButton;
 
         [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
 
