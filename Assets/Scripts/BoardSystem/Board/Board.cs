@@ -3,8 +3,15 @@ using UnityEngine;
 
 namespace HexCardGame.Runtime.GameBoard
 {
+    public enum Orientation
+    {
+        PointyTop,
+        FlatTop
+    }
+
     public interface IBoard
     {
+        Orientation Orientation { get; }
         Position[] Positions { get; }
         bool HasPosition(int x, int y);
         Position? GetPosition(int x, int y);
@@ -14,8 +21,9 @@ namespace HexCardGame.Runtime.GameBoard
 
     public class Board : IBoard
     {
-        public Board(BoardController controller, BoardData data)
+        public Board(BoardController controller, BoardData data, Orientation orientation)
         {
+            Orientation = orientation;
             Data = data;
             Controller = controller;
             GeneratePositions();
@@ -23,6 +31,8 @@ namespace HexCardGame.Runtime.GameBoard
 
         BoardData Data { get; }
         BoardController Controller { get; }
+
+        public Orientation Orientation { get; }
         public Position[] Positions { get; private set; }
 
         public void GeneratePositions()

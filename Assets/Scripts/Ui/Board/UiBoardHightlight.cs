@@ -17,10 +17,14 @@ namespace HexCardGame.UI
 
         void OnCreateBoard(IBoard board)
         {
+            Hide();
+            _highlights.Clear();
             foreach (var p in board.Positions)
             {
                 var hex = p.Hex;
-                var cell = BoardManipulationPointOddR.GetCellCoordinate(hex);
+                var cell = board.Orientation == Orientation.PointyTop
+                    ? BoardManipulationPointOddR.GetCellCoordinate(hex)
+                    : BoardManipulationFlatOddR.GetCellCoordinate(hex);
                 var worldPosition = TileMap.CellToWorld(cell);
                 var highlight = Instantiate(highlightTiles, worldPosition, Quaternion.identity, transform)
                     .GetComponent<UiHoverParticleSystem>();
@@ -34,7 +38,6 @@ namespace HexCardGame.UI
         {
             TileMap = GetComponentInChildren<Tilemap>();
             controller.OnCreateBoard += OnCreateBoard;
-            Hide();
         }
 
         void Hide()

@@ -27,7 +27,9 @@ public class UiCamera : MonoBehaviour
         foreach (var pos in board.Positions)
         {
             var hex = pos.Hex;
-            var cell = BoardManipulationPointOddR.GetCellCoordinate(hex);
+            var cell = board.Orientation == Orientation.PointyTop
+                ? BoardManipulationPointOddR.GetCellCoordinate(hex)
+                : BoardManipulationFlatOddR.GetCellCoordinate(hex);
             var worldCellPos = tileMap.CellToWorld(cell);
 
             if (worldCellPos.x > maxPosX)

@@ -28,8 +28,9 @@ namespace HexCardGame.UI
             Show();
         }
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             neighboursButton.onClick.AddListener(OnPressNeighbours);
             diagonalDesButton.onClick.AddListener(OnPressDiagonalDes);
             diagonalAscButton.onClick.AddListener(OnPressDiagonalAsc);
