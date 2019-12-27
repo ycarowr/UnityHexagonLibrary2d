@@ -1,2 +1,2 @@
 # Unity-Cube-Coordinates-Hexagonal
- An implementation of a hexagonal board using 
+ A generic implementation of a hexagonal board using Unity3d TileMaps and https://www.redblobgames.com/grids/hexagons/#range 
