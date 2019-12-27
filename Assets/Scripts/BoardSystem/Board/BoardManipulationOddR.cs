@@ -32,7 +32,7 @@ namespace HexCardGame.Runtime
         }
 
         /// <summary>
-        ///     If the points is present amount the starting configuration returns it. Otherwise returns a empty array.
+        ///     If the points is present among the starting configuration returns it. Otherwise returns a empty array.
         /// </summary>
         Hex[] GetIfExists(Hex hex)
         {
