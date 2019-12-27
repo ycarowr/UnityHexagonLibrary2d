@@ -15,9 +15,17 @@ namespace HexCardGame.UI
         [SerializeField] protected Button showButton;
         [SerializeField] protected Button xButton;
 
+        public void Show()
+        {
+            BackButton.Instance.Push(this);
+            content.SetActive(true);
+            OnShow();
+        }
+
+        public void Back() => Hide();
+
         protected virtual void Awake()
         {
-            
         }
 
         protected virtual void Start()
@@ -29,13 +37,6 @@ namespace HexCardGame.UI
             if (xButton)
                 xButton.onClick.AddListener(BackButton.Instance.Pop);
             Hide();
-        }
-
-        public void Show()
-        {
-            BackButton.Instance.Push(this);
-            content.SetActive(true);
-            OnShow();
         }
 
         protected void Hide()
@@ -51,7 +52,5 @@ namespace HexCardGame.UI
         protected virtual void OnShow()
         {
         }
-
-        public void Back() => Hide();
     }
 }

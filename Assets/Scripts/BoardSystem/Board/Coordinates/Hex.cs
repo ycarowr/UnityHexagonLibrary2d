@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace HexCardGame.Runtime
 {
-    public class SortHexAscendant : IComparer<Hex>
-    {
-        public int Compare(Hex x, Hex y) => x.CompareTo(y);
-    }
-
-    public class SortHexDescendant : IComparer<Hex>
-    {
-        public int Compare(Hex x, Hex y) => y.CompareTo(x);
-    }
-
     public struct Hex : IComparable
     {
         static readonly Hex[] Diagonals =
@@ -39,8 +28,10 @@ namespace HexCardGame.Runtime
 
         public int q { get; } //column, X axis
         public int r { get; } //row, Y axis
-        public int s { get; }
+        public int s { get; } //s = -(q + r), math is great
+        public int Length => (Mathf.Abs(q) + Mathf.Abs(r) + Mathf.Abs(s)) / 2;
 
+        //TODO: Maybe keep only one constructor to make things less confusing.
         public Hex(int q, int r)
         {
             this.q = q;
@@ -56,14 +47,8 @@ namespace HexCardGame.Runtime
             this.s = s;
         }
 
-        public AxialCoord ToAxialCoord() => new AxialCoord(q, r);
+        #region Util
 
-        public OffsetCoord ToQoffsetEven() => OffsetCoordHelper.QoffsetFromCube(OffsetCoord.Parity.Even, this);
-        public OffsetCoord ToQoffsetOdd() => OffsetCoordHelper.QoffsetFromCube(OffsetCoord.Parity.Odd, this);
-        public OffsetCoord ToRoffsetEven() => OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Even, this);
-        public OffsetCoord ToRoffsetOdd() => OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, this);
-
-        public int Length => (Mathf.Abs(q) + Mathf.Abs(r) + Mathf.Abs(s)) / 2;
         public static bool operator ==(Hex a, Hex b) => a.q == b.q && a.r == b.r && a.s == b.s;
         public static bool operator !=(Hex a, Hex b) => !(a == b);
 
@@ -109,12 +94,24 @@ namespace HexCardGame.Runtime
 
         public override string ToString() => $"Hex: ({q}, {r}, {s})";
 
+        #endregion
+
         #region Operators
 
         public static Hex Add(Hex a, Hex b) => new Hex(a.q + b.q, a.r + b.r);
         public static Hex Subtract(Hex a, Hex b) => new Hex(a.q - b.q, a.r - b.r);
         public static Hex Multiply(Hex a, int k) => new Hex(a.q * k, a.r * k);
         public static int Distance(Hex a, Hex b) => Subtract(a, b).Length;
+
+        #endregion
+
+        #region Conversion
+
+        public AxialCoord ToAxialCoord() => new AxialCoord(q, r);
+        public OffsetCoord ToQoffsetEven() => OffsetCoordHelper.QoffsetFromCube(OffsetCoord.Parity.Even, this);
+        public OffsetCoord ToQoffsetOdd() => OffsetCoordHelper.QoffsetFromCube(OffsetCoord.Parity.Odd, this);
+        public OffsetCoord ToRoffsetEven() => OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Even, this);
+        public OffsetCoord ToRoffsetOdd() => OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, this);
 
         #endregion
     }

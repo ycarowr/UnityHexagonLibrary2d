@@ -7,7 +7,7 @@ namespace HexCardGame.UI
     public class UiParallelogramMenu : UiParentMenu
     {
         [SerializeField] Button confirmButton;
-        [SerializeField] ParallelogramBoardData data;
+        [SerializeField] ParallelogramBoardDataShape dataShape;
         [SerializeField] Slider height;
         [SerializeField] Slider width;
 
@@ -19,9 +19,9 @@ namespace HexCardGame.UI
 
         void OnConfirm()
         {
-            data.width = (int) width.value;
-            data.height = (int) height.value;
-            boardController.SetBoarDataAndCreate(data);
+            dataShape.width = (int) width.value;
+            dataShape.height = (int) height.value;
+            boardController.SetBoarDataAndCreate(dataShape);
         }
     }
 }

@@ -1,43 +1,40 @@
 using HexCardGame.SharedData;
-using UnityEngine;
 
 namespace HexCardGame.Runtime.GameBoard
 {
-    public enum Orientation
-    {
-        PointyTop,
-        FlatTop
-    }
-
-    public interface IBoard
-    {
-        Orientation Orientation { get; }
-        Position[] Positions { get; }
-        bool HasPosition(int x, int y);
-        Position? GetPosition(int x, int y);
-        Position? GetPosition(Vector3Int position);
-        void GeneratePositions();
-    }
-
+    /// <summary>
+    ///     A board is composed by positions that are referenced by an HexCoordinate.
+    ///     Positions can store the game data like monsters, itens, heroes, etc.
+    /// </summary>
     public class Board : IBoard
     {
-        public Board(BoardController controller, BoardData data, Orientation orientation)
+        public Board(BoardController controller, BoardDataShape dataShape, Orientation orientation)
         {
             Orientation = orientation;
-            Data = data;
+            DataShape = dataShape;
             Controller = controller;
             GeneratePositions();
         }
 
-        BoardData Data { get; }
         BoardController Controller { get; }
-
+        public BoardDataShape DataShape { get; }
         public Orientation Orientation { get; }
         public Position[] Positions { get; private set; }
 
+        public bool HasPosition(Hex point) => GetPosition(point) != null;
+
+        public Position? GetPosition(Hex point)
+        {
+            foreach (var i in Positions)
+                if (i.Point == point)
+                    return i;
+
+            return null;
+        }
+
         public void GeneratePositions()
         {
-            var positions = Data.GetHexPoints();
+            var positions = DataShape.GetHexPoints();
             Positions = new Position[positions.Length];
             for (var index = 0; index < positions.Length; index++)
             {
@@ -46,22 +43,6 @@ namespace HexCardGame.Runtime.GameBoard
             }
 
             OnCreateBoard();
-        }
-
-        public bool HasPosition(int x, int y) => GetPosition(x, y) != null;
-        public Position? GetPosition(Vector3Int p) => GetPosition(p.x, p.y);
-
-        public Position? GetPosition(int x, int y)
-        {
-            foreach (var i in Positions)
-            {
-                if (i.Hex.q != x)
-                    continue;
-                if (i.Hex.r == y)
-                    return i;
-            }
-
-            return null;
         }
 
         void OnCreateBoard() => Controller.DispatchCreateBoard(this);

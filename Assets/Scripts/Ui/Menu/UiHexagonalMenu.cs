@@ -7,7 +7,7 @@ namespace HexCardGame.UI
     public class UiHexagonalMenu : UiParentMenu
     {
         [SerializeField] Button confirmButton;
-        [SerializeField] HexagonalBoardData data;
+        [SerializeField] HexagonalBoardDataShape dataShape;
         [SerializeField] Slider slider;
 
         protected override void Awake()
@@ -18,8 +18,8 @@ namespace HexCardGame.UI
 
         void OnConfirm()
         {
-            data.SetRadius((int) slider.value);
-            boardController.SetBoarDataAndCreate(data);
+            dataShape.radius = (int) slider.value;
+            boardController.SetBoarDataAndCreate(dataShape);
         }
     }
 }

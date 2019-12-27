@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HexCardGame.SharedData
 {
-    public abstract class BoardData : ScriptableObject
+    public abstract class BoardDataShape : ScriptableObject
     {
         public abstract Hex[] GetHexPoints();
     }

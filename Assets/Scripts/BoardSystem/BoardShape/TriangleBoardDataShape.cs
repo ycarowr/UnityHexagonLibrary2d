@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HexCardGame.SharedData
 {
     [CreateAssetMenu(menuName = "Data/TriangleBoardData", fileName = "TriangleBoardData")]
-    public class TriangleBoardData : BoardData
+    public class TriangleBoardDataShape : BoardDataShape
     {
         readonly List<Hex> _points = new List<Hex>();
         [Range(1, 10)] public int size;

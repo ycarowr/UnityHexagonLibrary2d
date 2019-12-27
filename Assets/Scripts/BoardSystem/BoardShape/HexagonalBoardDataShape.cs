@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HexCardGame.SharedData
 {
     [CreateAssetMenu(menuName = "Data/BoardData", fileName = "HexagonalBoardData")]
-    public class HexagonalBoardData : BoardData
+    public class HexagonalBoardDataShape : BoardDataShape
     {
         readonly List<Hex> _points = new List<Hex>();
         [Range(0, 10)] public int radius;
@@ -23,7 +23,5 @@ namespace HexCardGame.SharedData
 
             return _points.ToArray();
         }
-
-        public void SetRadius(int r) => radius = r;
     }
 }

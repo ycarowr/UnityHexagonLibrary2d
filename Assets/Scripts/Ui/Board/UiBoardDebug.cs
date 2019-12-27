@@ -25,7 +25,7 @@ namespace Game.Ui
             _positions = new GameObject[CurrentBoard.Positions.Length];
             for (var i = 0; i < CurrentBoard.Positions.Length; i++)
             {
-                var hex = CurrentBoard.Positions[i].Hex;
+                var hex = CurrentBoard.Positions[i].Point;
                 var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);
                 var gameObj = Instantiate(textPosition, worldPosition, identity, transform);
@@ -53,7 +53,7 @@ namespace Game.Ui
             if (CurrentBoard == null)
                 return;
 
-            foreach (var hex in controller.data.GetHexPoints())
+            foreach (var hex in controller.dataShape.GetHexPoints())
             {
                 var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);

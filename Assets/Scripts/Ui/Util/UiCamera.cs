@@ -26,7 +26,7 @@ public class UiCamera : MonoBehaviour
 
         foreach (var pos in board.Positions)
         {
-            var hex = pos.Hex;
+            var hex = pos.Point;
             var cell = BoardManipulationOddR.GetCellCoordinate(hex);
             var worldCellPos = tileMap.CellToWorld(cell);
 

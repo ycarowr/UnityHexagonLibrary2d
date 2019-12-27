@@ -7,7 +7,7 @@ namespace HexCardGame.Runtime.GameBoard
 {
     public class BoardController : MonoBehaviour
     {
-        public BoardData data;
+        public BoardDataShape dataShape;
         [SerializeField] Tilemap tileMap;
         public IBoard Board { get; private set; }
         public IBoardManipulation BoardManipulation { get; private set; }
@@ -20,21 +20,21 @@ namespace HexCardGame.Runtime.GameBoard
         {
             tileMap.orientation = Tilemap.Orientation.YX;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.YXZ;
-            Board = new Board(this, data, Orientation.FlatTop);
+            Board = new Board(this, dataShape, Orientation.FlatTop);
         }
 
         public void CreateBoardPointy()
         {
             tileMap.orientation = Tilemap.Orientation.XY;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.XYZ;
-            Board = new Board(this, data, Orientation.PointyTop);
+            Board = new Board(this, dataShape, Orientation.PointyTop);
         }
 
         public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
 
-        public void SetBoarDataAndCreate(BoardData boardData)
+        public void SetBoarDataAndCreate(BoardDataShape boardDataShape)
         {
-            data = boardData;
+            dataShape = boardDataShape;
             CreateBoard();
         }
 
@@ -45,7 +45,7 @@ namespace HexCardGame.Runtime.GameBoard
                 CreateBoardPointy();
             else
                 CreateBoardFlat();
-            BoardManipulation = new BoardManipulationOddR(data);
+            BoardManipulation = new BoardManipulationOddR(dataShape);
         }
     }
 }

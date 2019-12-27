@@ -21,7 +21,7 @@ namespace HexCardGame.UI
             _highlights.Clear();
             foreach (var p in board.Positions)
             {
-                var hex = p.Hex;
+                var hex = p.Point;
                 var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = TileMap.CellToWorld(cell);
                 var highlight = Instantiate(highlightTiles, worldPosition, Quaternion.identity, transform)

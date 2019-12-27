@@ -7,7 +7,7 @@ namespace HexCardGame.UI
     public class UiRectangleMenu : UiParentMenu
     {
         [SerializeField] Button confirmButton;
-        [SerializeField] RectBoardData data;
+        [SerializeField] RectBoardDataShape dataShape;
         [SerializeField] Slider height;
         [SerializeField] Slider width;
 
@@ -19,9 +19,9 @@ namespace HexCardGame.UI
 
         void OnConfirm()
         {
-            data.width = (int) width.value;
-            data.height = (int) height.value;
-            boardController.SetBoarDataAndCreate(data);
+            dataShape.width = (int) width.value;
+            dataShape.height = (int) height.value;
+            boardController.SetBoarDataAndCreate(dataShape);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace HexCardGame.UI
             TileMap.ClearAllTiles();
             foreach (var pos in CurrentBoard.Positions)
             {
-                var hex = pos.Hex;
+                var hex = pos.Point;
                 var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 TileMap.SetTile(cell, test);
             }

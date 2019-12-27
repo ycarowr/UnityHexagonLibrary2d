@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HexCardGame.SharedData
 {
     [CreateAssetMenu(menuName = "Data/ParallelogramData", fileName = "ParallelogramData")]
-    public class ParallelogramBoardData : BoardData
+    public class ParallelogramBoardDataShape : BoardDataShape
     {
         readonly List<Hex> _points = new List<Hex>();
         [Range(2, 10)] public int height;

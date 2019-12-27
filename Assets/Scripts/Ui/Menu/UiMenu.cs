@@ -6,9 +6,9 @@ namespace HexCardGame.UI
     public class UiMenu : UiParentMenu
     {
         [SerializeField] Button[] buttons;
-        [SerializeField] Slider zoomSlider;
         [SerializeField] Toggle flatToggle;
         [SerializeField] Toggle pointyToggle;
+        [SerializeField] Slider zoomSlider;
         Camera MainCamera { get; set; }
 
         protected override void Awake()
@@ -16,7 +16,7 @@ namespace HexCardGame.UI
             zoomSlider.onValueChanged.AddListener(OnZoomChanged);
             flatToggle.onValueChanged.AddListener(OnFlatTogglePressed);
             pointyToggle.onValueChanged.AddListener(OnPointyTogglePressed);
-            foreach (var i in buttons) 
+            foreach (var i in buttons)
                 i.onClick.AddListener(Hide);
 
             MainCamera = Camera.main;
