@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace HexCardGame.Runtime
 {
+    /// <summary>
+    ///     The way to manipulate a board in the Odd-Row layout configuration.
+    /// </summary>
     public class BoardManipulationOddR : IBoardManipulation
     {
-        static readonly Hex[] Neighbours =
+        static readonly Hex[] NeighboursDirections =
         {
             new Hex(1, 0), new Hex(1, -1), new Hex(0, -1),
             new Hex(-1, 0), new Hex(-1, 1), new Hex(0, 1)
@@ -21,7 +24,7 @@ namespace HexCardGame.Runtime
             var point = GetHexCoordinate(cell);
             var center = GetIfExists(point);
             var neighbours = new Hex[] { };
-            foreach (var direction in Neighbours)
+            foreach (var direction in NeighboursDirections)
             {
                 var neighbour = Hex.Add(center[0], direction);
                 var array = new[] {neighbour};

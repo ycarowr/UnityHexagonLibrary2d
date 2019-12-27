@@ -13,8 +13,23 @@ namespace HexCardGame.Runtime.GameBoard
         public IBoardManipulation BoardManipulation { get; private set; }
         public event Action<IBoard> OnCreateBoard = board => { };
 
-
         void Start() => CreateBoard();
+        
+        void CreateBoard()
+        {
+            //using the tile map orientation to pick the default value
+            if (tileMap.orientation == Tilemap.Orientation.XY)
+                CreateBoardPointy();
+            else
+                CreateBoardFlat();
+            BoardManipulation = new BoardManipulationOddR(dataShape);
+        }
+        
+        public void SetBoarDataAndCreate(BoardDataShape boardDataShape)
+        {
+            dataShape = boardDataShape;
+            CreateBoard();
+        }
 
         public void CreateBoardFlat()
         {
@@ -31,21 +46,5 @@ namespace HexCardGame.Runtime.GameBoard
         }
 
         public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
-
-        public void SetBoarDataAndCreate(BoardDataShape boardDataShape)
-        {
-            dataShape = boardDataShape;
-            CreateBoard();
-        }
-
-        public void CreateBoard()
-        {
-            //using the tile map orientation to define the default
-            if (tileMap.orientation == Tilemap.Orientation.XY)
-                CreateBoardPointy();
-            else
-                CreateBoardFlat();
-            BoardManipulation = new BoardManipulationOddR(dataShape);
-        }
     }
 }
