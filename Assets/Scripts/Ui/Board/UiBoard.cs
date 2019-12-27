@@ -30,9 +30,7 @@ namespace HexCardGame.UI
             foreach (var pos in CurrentBoard.Positions)
             {
                 var hex = pos.Hex;
-                var cell = CurrentBoard.Orientation == Orientation.PointyTop
-                    ? BoardManipulationPointOddR.GetCellCoordinate(hex)
-                    : BoardManipulationFlatOddR.GetCellCoordinate(hex);
+                var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 TileMap.SetTile(cell, test);
             }
         }

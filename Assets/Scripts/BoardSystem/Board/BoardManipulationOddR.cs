@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HexCardGame.Runtime
 {
-    public class BoardManipulationFlatOddR : IBoardManipulation
+    public class BoardManipulationOddR : IBoardManipulation
     {
         readonly Hex[] _hexPoints;
 
@@ -14,7 +14,7 @@ namespace HexCardGame.Runtime
             new Hex(-1, 0), new Hex(-1, 1), new Hex(0, 1)
         };
 
-        public BoardManipulationFlatOddR(BoardData data) => _hexPoints = data.GetHexPoints();
+        public BoardManipulationOddR(BoardData data) => _hexPoints = data.GetHexPoints();
 
         public Hex[] GetNeighbours(Vector3Int cell)
         {

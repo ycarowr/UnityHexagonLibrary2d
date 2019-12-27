@@ -21,7 +21,6 @@ namespace HexCardGame.Runtime.GameBoard
             tileMap.orientation = Tilemap.Orientation.YX;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.YXZ;
             Board = new Board(this, data, Orientation.FlatTop);
-            BoardManipulation = new BoardManipulationFlatOddR(data);
         }
 
         public void CreateBoardPointy()
@@ -29,7 +28,6 @@ namespace HexCardGame.Runtime.GameBoard
             tileMap.orientation = Tilemap.Orientation.XY;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.XYZ;
             Board = new Board(this, data, Orientation.PointyTop);
-            BoardManipulation = new BoardManipulationPointOddR(data);
         }
 
         public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
@@ -42,10 +40,12 @@ namespace HexCardGame.Runtime.GameBoard
 
         public void CreateBoard()
         {
+            //using the tile map orientation to define the default
             if (tileMap.orientation == Tilemap.Orientation.XY)
                 CreateBoardPointy();
             else
                 CreateBoardFlat();
+            BoardManipulation = new BoardManipulationOddR(data);
         }
     }
 }

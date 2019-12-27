@@ -28,43 +28,42 @@ namespace HexCardGame.UI
             Show();
         }
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
             neighboursButton.onClick.AddListener(OnPressNeighbours);
             diagonalDesButton.onClick.AddListener(OnPressDiagonalDes);
             diagonalAscButton.onClick.AddListener(OnPressDiagonalAsc);
             horizontalButton.onClick.AddListener(OnPressHorizontal);
             uiTileMapInputHandler.OnRightClickTile += OnRightClickTile;
-            Hide();
         }
 
         void OnPressNeighbours()
         {
             var hexes = boardController.BoardManipulation.GetNeighbours(Selection);
             boardHighlight.Show(hexes);
-            Hide();
+            BackButton.Instance.Pop();
         }
 
         void OnPressDiagonalDes()
         {
             var selection = boardController.BoardManipulation.GetDiagonalDescendant(Selection, ABigLength);
             boardHighlight.Show(selection);
-            Hide();
+            BackButton.Instance.Pop();
         }
 
         void OnPressDiagonalAsc()
         {
             var selection = boardController.BoardManipulation.GetDiagonalAscendant(Selection, ABigLength);
             boardHighlight.Show(selection);
-            Hide();
+            BackButton.Instance.Pop();
         }
 
         void OnPressHorizontal()
         {
             var selection = boardController.BoardManipulation.GetHorizontal(Selection, ABigLength);
             boardHighlight.Show(selection);
-            Hide();
+            BackButton.Instance.Pop();
         }
     }
 }

@@ -22,9 +22,7 @@ namespace HexCardGame.UI
             foreach (var p in board.Positions)
             {
                 var hex = p.Hex;
-                var cell = board.Orientation == Orientation.PointyTop
-                    ? BoardManipulationPointOddR.GetCellCoordinate(hex)
-                    : BoardManipulationFlatOddR.GetCellCoordinate(hex);
+                var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = TileMap.CellToWorld(cell);
                 var highlight = Instantiate(highlightTiles, worldPosition, Quaternion.identity, transform)
                     .GetComponent<UiHoverParticleSystem>();

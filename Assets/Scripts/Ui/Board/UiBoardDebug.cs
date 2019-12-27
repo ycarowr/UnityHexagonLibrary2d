@@ -26,9 +26,7 @@ namespace Game.Ui
             for (var i = 0; i < CurrentBoard.Positions.Length; i++)
             {
                 var hex = CurrentBoard.Positions[i].Hex;
-                var cell = CurrentBoard.Orientation == Orientation.PointyTop
-                    ? BoardManipulationPointOddR.GetCellCoordinate(hex)
-                    : BoardManipulationFlatOddR.GetCellCoordinate(hex);
+                var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);
                 var gameObj = Instantiate(textPosition, worldPosition, identity, transform);
                 _positions[i] = gameObj;
@@ -57,9 +55,7 @@ namespace Game.Ui
 
             foreach (var hex in controller.data.GetHexPoints())
             {
-                var cell = CurrentBoard.Orientation == Orientation.PointyTop
-                    ? BoardManipulationPointOddR.GetCellCoordinate(hex)
-                    : BoardManipulationFlatOddR.GetCellCoordinate(hex);
+                var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);
                 Gizmos.DrawWireSphere(worldPosition, 0.93f);
             }

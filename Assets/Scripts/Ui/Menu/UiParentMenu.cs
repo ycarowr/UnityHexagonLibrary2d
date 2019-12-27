@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace HexCardGame.UI
 {
-    public abstract class UiParentMenu : MonoBehaviour
+    public abstract class UiParentMenu : MonoBehaviour, IBackHandler
     {
         [Header("Dependencies"), SerializeField]
         protected BoardController boardController;
@@ -13,23 +13,27 @@ namespace HexCardGame.UI
 
         [SerializeField] protected Button hideButton;
         [SerializeField] protected Button showButton;
-
         [SerializeField] protected Button xButton;
 
         protected virtual void Awake()
         {
+            
+        }
+
+        protected virtual void Start()
+        {
             if (showButton)
                 showButton.onClick.AddListener(Show);
             if (hideButton)
-                hideButton.onClick.AddListener(Hide);
+                hideButton.onClick.AddListener(BackButton.Instance.Pop);
             if (xButton)
-                xButton.onClick.AddListener(Hide);
+                xButton.onClick.AddListener(BackButton.Instance.Pop);
+            Hide();
         }
 
-        protected virtual void Start() => Hide();
-
-        protected void Show()
+        public void Show()
         {
+            BackButton.Instance.Push(this);
             content.SetActive(true);
             OnShow();
         }
@@ -47,5 +51,7 @@ namespace HexCardGame.UI
         protected virtual void OnShow()
         {
         }
+
+        public void Back() => Hide();
     }
 }

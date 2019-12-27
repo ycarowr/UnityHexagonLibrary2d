@@ -1,4 +1,5 @@
-﻿using HexCardGame.Runtime.GameBoard;
+﻿using System;
+using HexCardGame.Runtime.GameBoard;
 using TMPro;
 using UnityEngine;
 
@@ -11,11 +12,15 @@ namespace Game.Ui
         const string Horizontal = "Horizontal";
 
         [SerializeField] BoardController controller;
-        void Start() => controller.OnCreateBoard += OnCreateBoard;
 
-        void OnCreateBoard(IBoard obj)
+        void OnEnable() => CheckOrientation();
+
+        void CheckOrientation()
         {
-            var txt = obj.Orientation == Orientation.FlatTop ? Vertical : Horizontal;
+            var board = controller.Board;
+            if (board == null)
+                return;
+            var txt = board.Orientation == Orientation.FlatTop ? Vertical : Horizontal;
             SetText(txt);
         }
     }
