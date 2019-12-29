@@ -11,6 +11,8 @@ namespace HexCardGame.UI
         [SerializeField] Button diagonalDesButton;
         [SerializeField] Button horizontalButton;
         [SerializeField] RectTransform menu;
+        [SerializeField] Canvas canvas;
+        
 
         [Header("Buttons"), SerializeField] Button neighboursButton;
 
@@ -20,10 +22,13 @@ namespace HexCardGame.UI
 
         void OnRightClickTile(Vector3Int selection, Vector2 screenPoint)
         {
-            var rect = menu.rect;
-            var offsetX = rect.size.x / 2;
-            var offsetY = -rect.size.y / 2;
-            menu.anchoredPosition = screenPoint + new Vector2(offsetX, offsetY);
+            var referenceResolution = canvas.GetComponent<CanvasScaler>().referenceResolution;
+            var currentResolution = new Vector2(Screen.width, Screen.height);
+            var factorResolution = currentResolution / referenceResolution;
+            var rectSize = menu.rect.size;
+            var offsetX = rectSize.x / 2;
+            var offsetY = -rectSize.y / 2;
+            menu.anchoredPosition = (screenPoint/factorResolution + new Vector2(offsetX, offsetY));
             Selection = selection;
             Show();
         }
