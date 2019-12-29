@@ -1903,7 +1903,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717365819480529259}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0002462, y: 1.0002462, z: 1.0002462}
   m_Children:
@@ -1934,7 +1934,7 @@ MonoBehaviour:
   showButton: {fileID: 0}
   xButton: {fileID: 717365818847444978}
   confirmButton: {fileID: 717365819311420774}
-  data: {fileID: 11400000, guid: 7f05bad134eedcb45af21739c5724f8f, type: 2}
+  dataShape: {fileID: 11400000, guid: 7f05bad134eedcb45af21739c5724f8f, type: 2}
   height: {fileID: 717365819538511992}
   width: {fileID: 717365819442454276}
 --- !u!1 &717365819538511990

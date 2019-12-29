@@ -156,12 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f5b72da311188429927316a512bc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!156049354 &600382446 stripped
-Grid:
-  m_CorrespondingSourceObject: {fileID: 1167042614667538260, guid: 9280df56d41809649be316fa09ecd023,
-    type: 3}
-  m_PrefabInstance: {fileID: 7468247690930865232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &726451962 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7091121504684690361, guid: b7904a9a47dbcb548b3ad3c803f99737,
@@ -722,6 +716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2604098008624156519, guid: f5348aea3af870f418f4cd78405edd8f,
+        type: 3}
+      propertyPath: boardController
+      value: 
+      objectReference: {fileID: 1632720898}
     - target: {fileID: 2604098008624156516, guid: f5348aea3af870f418f4cd78405edd8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,11 +826,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2604098008624156519, guid: f5348aea3af870f418f4cd78405edd8f,
-        type: 3}
-      propertyPath: boardController
-      value: 
-      objectReference: {fileID: 1632720898}
     - target: {fileID: 2604098008379064083, guid: f5348aea3af870f418f4cd78405edd8f,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1320,6 +1314,11 @@ PrefabInstance:
       propertyPath: uiTileMapInputHandler
       value: 
       objectReference: {fileID: 3301168601776931346}
+    - target: {fileID: 4277597401762690951, guid: 213349fa98e99a94a9a311e738a66294,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 5235919943780479368}
     - target: {fileID: 4277597400750029796, guid: 213349fa98e99a94a9a311e738a66294,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1871,11 +1870,6 @@ PrefabInstance:
       propertyPath: tileMap
       value: 
       objectReference: {fileID: 5243545515939959437}
-    - target: {fileID: 6557823974748166240, guid: 88d1752f5d165c54fbd66d32762d22bf,
-        type: 3}
-      propertyPath: grid
-      value: 
-      objectReference: {fileID: 600382446}
     - target: {fileID: 6557823974748166243, guid: 88d1752f5d165c54fbd66d32762d22bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2134,11 +2128,6 @@ PrefabInstance:
       propertyPath: highlightTiles
       value: 
       objectReference: {fileID: 415652271}
-    - target: {fileID: 3413829025580275421, guid: 9280df56d41809649be316fa09ecd023,
-        type: 3}
-      propertyPath: m_TileOrientation
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3351566967630825247, guid: 9280df56d41809649be316fa09ecd023,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2204,11 +2193,6 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1632720898}
-    - target: {fileID: 1167042614667538260, guid: 9280df56d41809649be316fa09ecd023,
-        type: 3}
-      propertyPath: m_CellSwizzle
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9280df56d41809649be316fa09ecd023, type: 3}
 --- !u!1001 &8283466083550064438

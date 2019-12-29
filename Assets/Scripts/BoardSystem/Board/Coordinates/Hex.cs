@@ -6,26 +6,6 @@ namespace HexCardGame.Runtime
 {
     public struct Hex : IComparable
     {
-        static readonly Hex[] Diagonals =
-        {
-            new Hex(1, -2, 1),
-            new Hex(-1, -1, 2),
-            new Hex(-2, 1, 1),
-            new Hex(-1, 2, -1),
-            new Hex(1, 1, -2),
-            new Hex(2, -1, -1)
-        };
-
-        static readonly Hex[] Directions =
-        {
-            new Hex(1, -1, 0),
-            new Hex(0, -1, 1),
-            new Hex(-1, 0, 1),
-            new Hex(-1, 1, 0),
-            new Hex(0, 1, -1),
-            new Hex(1, 0, -1)
-        };
-
         public int q { get; } //column, X axis
         public int r { get; } //row, Y axis
         public int s { get; } //s = -(q + r), math is great
@@ -45,10 +25,18 @@ namespace HexCardGame.Runtime
             this.q = q;
             this.r = r;
             this.s = s;
+            Assert.AreEqual(0, s + q + r);
         }
 
-        #region Util
+        #region Operators
+        
+        public override string ToString() => $"Hex: ({q}, {r}, {s})";
 
+        public static Hex Add(Hex a, Hex b) => new Hex(a.q + b.q, a.r + b.r);
+        public static Hex Subtract(Hex a, Hex b) => new Hex(a.q - b.q, a.r - b.r);
+        public static Hex Multiply(Hex a, int k) => new Hex(a.q * k, a.r * k);
+        public static int Distance(Hex a, Hex b) => Subtract(a, b).Length;
+        
         public static bool operator ==(Hex a, Hex b) => a.q == b.q && a.r == b.r && a.s == b.s;
         public static bool operator !=(Hex a, Hex b) => !(a == b);
 
@@ -92,20 +80,9 @@ namespace HexCardGame.Runtime
             return -1;
         }
 
-        public override string ToString() => $"Hex: ({q}, {r}, {s})";
-
         #endregion
 
-        #region Operators
-
-        public static Hex Add(Hex a, Hex b) => new Hex(a.q + b.q, a.r + b.r);
-        public static Hex Subtract(Hex a, Hex b) => new Hex(a.q - b.q, a.r - b.r);
-        public static Hex Multiply(Hex a, int k) => new Hex(a.q * k, a.r * k);
-        public static int Distance(Hex a, Hex b) => Subtract(a, b).Length;
-
-        #endregion
-
-        #region Conversion
+        #region Conversion to other Coordinate Systems
 
         public AxialCoord ToAxialCoord() => new AxialCoord(q, r);
         public OffsetCoord ToQoffsetEven() => OffsetCoordHelper.QoffsetFromCube(OffsetCoord.Parity.Even, this);
