@@ -1,5 +1,8 @@
-## A hexagonal board scheme using Unity TileMap 
- An implementation of a hexagonal board using Unity3d TileMaps and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and references.
+## A hexagonal board implementation using Unity TileMap
+
+This is a reusable implementation of a hexagonal board using Unity3d TileMaps and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and references. Feel free to use it in your projects. 
+
+Any kind of feedback is appreciated.
  
 ## Operations
 |Diagonals|Horizontal|
@@ -17,7 +20,6 @@
 <p align="center">
 <img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"><img width="210" height="210" src="/Assets/Textures/Gifs/Menu.GIF">
 </p>
-
 
 ## Implementation
 
