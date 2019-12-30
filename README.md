@@ -7,17 +7,9 @@
 |<img width="382" height="210" src="/Assets/Textures/Gifs/diagonals.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/horizontal.gif">|
 |<b>Neighbours</b>|<b>Tile Orientation</b>|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/neighbours.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/orientation.gif">|
+|<b>Shapes</b>|<b>Different Sizes</b>|
+|<img width="382" height="210" src="/Assets/Textures/Gifs/Menu.GIF">|<img width="382" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">|
 
-<p align="center">
-Hover
-<br></br>
-<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">
-</p>
-
-<p align="center">
-Shapes and Sizes
-<br></br>
-<img width="382" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">
-<img width="382" height="210" src="/Assets/Textures/Gifs/parallelogram.gif">
 <img width="382" height="210" src="/Assets/Textures/Gifs/triangle.gif">
-</p>
+<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">
+<img width="382" height="210" src="/Assets/Textures/Gifs/parallelogram.gif">
