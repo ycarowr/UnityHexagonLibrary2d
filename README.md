@@ -21,7 +21,7 @@ You can find below images that illustrate the funcionalities and an overview of 
 
 ## Menus 
 <p align="center">
-<img width="210" height="250" src="/Assets/Textures/Gifs/Sizes.GIF"> <img width="210" height="230" src="/Assets/Textures/Gifs/Menu.GIF">
+<img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"> <img width="210" height="250" src="/Assets/Textures/Gifs/Menu.GIF">
 </p>
 
 ## Implementation
