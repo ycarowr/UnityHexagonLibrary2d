@@ -3,18 +3,40 @@
  
 ## Some features
 
-### Diagonals
-![alt text](/Assets/Textures/Gifs/diagonals.gif)
-### Horizontal
-![alt text](/Assets/Textures/Gifs/horizontal.gif)
-### Neighbours
-![alt text](/Assets/Textures/Gifs/neighbours.gif)
-### Tile Orientation
-![alt text](/Assets/Textures/Gifs/orientation.gif)
-### Hover 
-![alt text](/Assets/Textures/Gifs/Hover.gif)
-### Shapes and Sizes
-![alt text](/Assets/Textures/Gifs/Menu.GIF)
-![alt text](/Assets/Textures/Gifs/parallelogram.gif)
-![alt text](/Assets/Textures/Gifs/triangle.gif)
-![alt text](/Assets/Textures/Gifs/Sizes.GIF)
+<p align="center">
+Diagonals
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/diagonals.gif">
+</p>
+
+<p align="center">
+Horizontal
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/horizontal.gif">
+</p>
+
+<p align="center">
+Neighbours
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/neighbours.gif">
+</p>
+
+<p align="center">
+Tile Orientation
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/orientation.gif">
+</p>
+
+<p align="center">
+Hover
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">
+</p>
+
+<p align="center">
+Shapes and Sizes
+<br></br>
+<img width="382" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">
+<img width="382" height="210" src="/Assets/Textures/Gifs/parallelogram.gif">
+<img width="382" height="210" src="/Assets/Textures/Gifs/triangle.gif">
+</p>
