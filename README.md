@@ -20,6 +20,8 @@ You can find below images that illustrate the funcionalities and an overview of 
 <img width="191" height="105" src="/Assets/Textures/Gifs/rectangle.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon1.GIF">  
 
 ## Menus 
+
+The application has an interface to interact and test operations and board shapes.
 <p align="center">
 <img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"> <img width="210" height="250" src="/Assets/Textures/Gifs/Menu.GIF">
 </p>
