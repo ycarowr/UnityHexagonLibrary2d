@@ -1,10 +1,13 @@
 ## A hexagonal board implementation using Unity TileMap
 
-This is a reusable implementation of a hexagonal board using Unity3d TileMaps and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and references. Feel free to use it in your projects. 
+This repository contains my implementation of a hexagonal board and additional utility functions using Unity3d TileMaps and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and references. 
 
-Any kind of feedback is appreciated.
+Feel free to use it in your projects. Any kind of feedback is appreciated. 
+
+You can find below images that illustrate the funcionalities and an overview of the system's implementation.
  
 ## Operations
+
 |Diagonals|Horizontal|
 |------------|-------------|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/diagonals.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/horizontal.gif">|
@@ -16,7 +19,7 @@ Any kind of feedback is appreciated.
 ## Shapes & Sizes
 <img width="191" height="105" src="/Assets/Textures/Gifs/rectangle.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon1.GIF">  
 
-## Menu
+## Menus 
 <p align="center">
 <img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"><img width="210" height="210" src="/Assets/Textures/Gifs/Menu.GIF">
 </p>
