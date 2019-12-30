@@ -4,3 +4,11 @@
 ## GIFS
 
 ![alt text](/Assets/Textures/Gifs/diagonals.gif)
+![alt text](/Assets/Textures/Gifs/Hover.gif)
+![alt text](/Assets/Textures/Gifs/horizontal.gif)
+![alt text](/Assets/Textures/Gifs/neightbours.gif)
+![alt text](/Assets/Textures/Gifs/orientation.gif)
+![alt text](/Assets/Textures/Gifs/parallelogram.gif)
+![alt text](/Assets/Textures/Gifs/triangle.gif)
+![alt text](/Assets/Textures/Gifs/Menu.GIF)
+![alt text](/Assets/Textures/Gifs/Sizes.GIF)
