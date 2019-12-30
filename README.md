@@ -3,4 +3,4 @@
  
 ## GIFS
 
-![alt text](/Assets/Textures/Gifs/zoom.gif)
+![alt text](/Assets/Textures/Gifs/diagonals.gif)
