@@ -9,5 +9,11 @@
 |<img width="382" height="210" src="/Assets/Textures/Gifs/neighbours.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/orientation.gif">|
 |<b>Hover</b>|<b>Zoom</b>|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/zoom1.gif">|
-|<b>Shapes</b>|<b> Sizes</b>|
-|<img width="210" height="210" src="/Assets/Textures/Gifs/Menu.GIF">|<img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">|
+
+## Shapes & Sizes
+<img width="191" height="105" src="/Assets/Textures/Gifs/rectangle.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> 
+<p align="center">
+<img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"><img width="210" height="210" src="/Assets/Textures/Gifs/Menu.GIF">
+</p>
+
+
