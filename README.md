@@ -10,4 +10,4 @@
 |<b>Hover</b>|<b>Zoom</b>|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/zoom1.gif">|
 |<b>Shapes</b>|<b> Sizes</b>|
-|<img width="270" height="210" src="/Assets/Textures/Gifs/Menu.GIF">|<img width="270" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">|
+|<img width="210" height="210" src="/Assets/Textures/Gifs/Menu.GIF">|<img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF">|
