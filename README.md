@@ -1,8 +1,13 @@
 ## A hexagonal board implementation using Unity TileMap
 
-This repository contains my implementation of a hexagonal board and additional utility functions using Unity3d TileMaps and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and references. 
+The repository contains an implementation of a small API to create, find and store data inside a hexagonal board using [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
 
-Feel free to use it in your projects. Any kind of feedback is appreciated. 
+The reasons that I made this project are the following:
+1. Usage of [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components: I could not really find in the web an implementation that binds this unity native component and all the math described in [redblob](https://www.redblobgames.com/grids/hexagons/) with a graphic interface.
+2. Ready to go: I'd like to have some sort of generic API that manage hexagons that are able to store data inside each position.
+
+I do believe it can save some time in the implementation of hexagonal prototypes/projects that are unity based. 
+Feel free to use it. Any kind of feedback is well appreciated. 
 
 You can find below images that illustrate the funcionalities and an overview of the system's implementation.
  
@@ -21,7 +26,7 @@ You can find below images that illustrate the funcionalities and an overview of 
 
 ## Menus 
 
-The application has an interface to interact and test operations and board shapes.
+The interface menu to interact with the board data and test the operations.
 <p align="center">
 <img width="210" height="210" src="/Assets/Textures/Gifs/Sizes.GIF"> <img width="210" height="250" src="/Assets/Textures/Gifs/Menu.GIF">
 </p>
@@ -34,4 +39,6 @@ The application has an interface to interact and test operations and board shape
 3. [Controller](/Assets/Scripts/BoardSystem/BoardController.cs)
 
 ### Model 
+
+// Documentation on going ...
 
