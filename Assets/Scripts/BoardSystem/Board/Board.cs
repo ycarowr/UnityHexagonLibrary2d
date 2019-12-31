@@ -3,8 +3,8 @@ using HexCardGame.SharedData;
 namespace HexCardGame.Runtime.GameBoard
 {
     /// <summary>
-    ///     A board is composed by positions that are referenced by an HexCoordinate.
-    ///     Positions can store the game data like monsters, itens, heroes, etc.
+    ///     A board is composed by positions that, by themselves, contain a HexCoordinate.
+    ///     Positions may store the game data. Things like monsters, itens, heroes, etc.
     /// </summary>
     public class Board : IBoard
     {
@@ -32,13 +32,13 @@ namespace HexCardGame.Runtime.GameBoard
             return null;
         }
 
-        public void GeneratePositions()
+        void GeneratePositions()
         {
-            var positions = DataShape.GetHexPoints();
-            Positions = new Position[positions.Length];
-            for (var index = 0; index < positions.Length; index++)
+            var points = DataShape.GetHexPoints();
+            Positions = new Position[points.Length];
+            for (var index = 0; index < points.Length; index++)
             {
-                var i = positions[index];
+                var i = points[index];
                 Positions[index] = new Position(i);
             }
 

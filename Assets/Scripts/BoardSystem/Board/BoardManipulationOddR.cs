@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HexCardGame.Runtime
 {
     /// <summary>
-    ///     The way to manipulate a board in the Odd-Row layout configuration.
+    ///     The way to manipulate a board in the Odd-Row layout.
     /// </summary>
     public class BoardManipulationOddR : IBoardManipulation
     {
@@ -22,7 +22,7 @@ namespace HexCardGame.Runtime
         public Hex[] GetNeighbours(Vector3Int cell)
         {
             var point = GetHexCoordinate(cell);
-            var center = GetIfExists(point);
+            var center = GetIfExistsOrEmpty(point);
             var neighbours = new Hex[] { };
             foreach (var direction in NeighboursDirections)
             {
@@ -35,9 +35,9 @@ namespace HexCardGame.Runtime
         }
 
         /// <summary>
-        ///     If the points is present among the starting configuration returns it. Otherwise returns a empty array.
+        ///     If the point is present among the starting configuration returns it. Otherwise returns a empty array.
         /// </summary>
-        Hex[] GetIfExists(Hex hex)
+        Hex[] GetIfExistsOrEmpty(Hex hex)
         {
             foreach (var i in _hexPoints)
                 if (i == hex)
@@ -51,7 +51,7 @@ namespace HexCardGame.Runtime
         public bool Contains(Vector3Int cell)
         {
             var center = GetHexCoordinate(cell);
-            return GetIfExists(center).Length > 0;
+            return GetIfExistsOrEmpty(center).Length > 0;
         }
 
         public Hex[] GetVertical(Vector3Int cell, int length) => new Hex[] { };
@@ -60,15 +60,15 @@ namespace HexCardGame.Runtime
         {
             var center = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExists(center);
+            var points = GetIfExistsOrEmpty(center);
             var x = center.q;
             var y = center.r;
 
             for (var i = 1; i <= halfLength; i++)
-                points = points.Append(GetIfExists(new Hex(x + i, y)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x + i, y)));
 
             for (var i = -1; i >= -halfLength; i--)
-                points = points.Append(GetIfExists(new Hex(x + i, y)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x + i, y)));
 
             return points;
         }
@@ -77,15 +77,15 @@ namespace HexCardGame.Runtime
         {
             var center = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExists(center);
+            var points = GetIfExistsOrEmpty(center);
             var x = center.q;
             var y = center.r;
 
             for (var i = 1; i <= halfLength; i++)
-                points = points.Append(GetIfExists(new Hex(x, y + i)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x, y + i)));
 
             for (var i = -1; i >= -halfLength; i--)
-                points = points.Append(GetIfExists(new Hex(x, y + i)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x, y + i)));
 
             return points;
         }
@@ -94,29 +94,29 @@ namespace HexCardGame.Runtime
         {
             var center = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExists(center);
+            var points = GetIfExistsOrEmpty(center);
             var x = center.q;
             var y = center.r;
 
             for (var i = 1; i <= halfLength; i++)
-                points = points.Append(GetIfExists(new Hex(x - i, y + i)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x - i, y + i)));
 
             for (var i = -1; i >= -halfLength; i--)
-                points = points.Append(GetIfExists(new Hex(x - i, y + i)));
+                points = points.Append(GetIfExistsOrEmpty(new Hex(x - i, y + i)));
 
             return points;
         }
 
         /// <summary>
-        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap.
-        ///     Its called cell and is a Vector3Int.
+        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap with a vector3Int cell.
+        ///     The internal board manipulation works with HexCoordinates, this method converts vector3int cell to hex.
         /// </summary>
         public static Hex GetHexCoordinate(Vector3Int cell) =>
             OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
 
         /// <summary>
-        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap.
-        ///     Its called cell and is a Vector3Int.
+        ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap with a vector3Int cell.
+        ///     The internal board manipulation works with HexCoordinates, this method converts hex to unity vector3int cell.
         /// </summary>
         public static Vector3Int GetCellCoordinate(Hex hex) =>
             OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, hex).ToVector3Int();

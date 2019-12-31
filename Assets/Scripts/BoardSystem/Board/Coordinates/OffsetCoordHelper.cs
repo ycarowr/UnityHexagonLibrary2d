@@ -1,6 +1,9 @@
 ﻿using System;
 using HexCardGame.Runtime;
 
+/// <summary>
+///      Helper class that handles all the conversion from HexCoordinate to OffsetCoordinates.
+/// </summary>
 public static class OffsetCoordHelper
 {
     public static OffsetCoord QoffsetFromCube(OffsetCoord.Parity offset, Hex h)
