@@ -1,12 +1,13 @@
 ## A hexagonal board implementation using Unity TileMap
 
-The repository contains an implementation of a small API to create, find and store data inside a hexagonal board using [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
+The repository contains an implementation of a API to create, find and store data inside a hexagonal board using [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
 
 The reasons that I made this project are the following:
-1. Usage of [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components: I could not really find in the web an implementation that binds this unity native component and all the math described in [redblob](https://www.redblobgames.com/grids/hexagons/) with a graphic interface.
-2. Ready to go: I'd like to have some sort of generic API that manage hexagons that are able to store data inside each position.
+1. Usage of [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components: I could not find in the web an implementation that binds this unity native component and the math described in [redblob](https://www.redblobgames.com/grids/hexagons/) with a graphic interface.
+2. Ready to go: I'd like to have a set of generic classes that manage hexagons and are able to store any kind of data.
 
-I do believe it can save some time in the implementation of hexagonal prototypes/projects that are unity based. 
+Since both of the requirements above are met, I do believe this repository can save some time in the implementation of hexagonal prototypes/projects that are unity based. 
+
 Feel free to use it. Any kind of feedback is well appreciated. 
 
 You can find below images that illustrate the funcionalities and an overview of the system's implementation.
