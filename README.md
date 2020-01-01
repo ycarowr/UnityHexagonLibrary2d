@@ -15,6 +15,8 @@ Since the requirements above are met, I do believe this repository can save some
 Feel free to use it. Any kind of feedback is well appreciated. 
 
 You can find below images that illustrate the funcionalities and an overview of the system's implementation.
+
+Playable demo [here](https://ycarowr.itch.io/hexagonal-board)
  
 ## Operations
 
