@@ -1,7 +1,6 @@
 
+# A hexagonal board implementation in Unity
 <img src="https://media.istockphoto.com/vectors/polygon-background-for-christmas-vector-id619411136">
-
-## A hexagonal board implementation using Unity
 
 The repository contains a small framework to create, find and store data inside a hexagonal board using [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
 
