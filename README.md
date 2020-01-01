@@ -44,7 +44,5 @@ The interface menu to interact with the board data and test the operations.
 2. [Views](/Assets/Scripts/Ui)
 3. [Controller](/Assets/Scripts/BoardSystem/BoardController.cs)
 
-### Model 
-
-// Documentation on going ...
+//TODO: Documentation details...
 
