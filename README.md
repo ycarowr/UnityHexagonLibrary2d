@@ -17,7 +17,7 @@ You can find below images that illustrate the funcionalities and an overview of 
 
 Playable demo [here](https://ycarowr.itch.io/hexagonal-board)
  
-## Operations
+## Functionalities
 
 |Diagonals|Horizontal|
 |------------|-------------|
@@ -30,7 +30,7 @@ Playable demo [here](https://ycarowr.itch.io/hexagonal-board)
 ## Shapes & Sizes
 <img width="191" height="105" src="/Assets/Textures/Gifs/rectangle.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon.GIF"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/parallelogram1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/triangle1.gif"> <img width="191" height="105" src="/Assets/Textures/Gifs/hexagon1.GIF">  
 
-## Menus 
+## Menu & Interface
 
 The interface menu to interact with the board data and test the operations.
 <p align="center">
