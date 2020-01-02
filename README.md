@@ -2,18 +2,16 @@
 # A hexagonal board implementation in Unity
 <img src="https://media.istockphoto.com/vectors/polygon-background-for-christmas-vector-id619411136">
 
-The repository contains a small framework to create, find and store data inside a hexagonal board using [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
+The repository contains a framework to create, find and store data inside a hexagonal board using Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
 
 The reasons that I made this project are the following:
-1. It can easily be extented or integrated into a secondary project.
-2. Usage of [Unity TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components: I could not find in the web an implementation that binds this unity native component and the math described in [redblob](https://www.redblobgames.com/grids/hexagons/) with a graphic interface.
-3. Ready to go: I'd like to have a set of generic classes that manage hexagons and are able to store any kind of data.
+1. I wanted a generic API that could be easily be extented or integrated into a secondary project;
+2. I wanted to have a set of generic classes that manage hexagons and are able to store any kind of data. What I mean by data: creatures, pieces, itens or whatever the main project needs; 
+3. I wanted to use the native Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components;
+ 
+You can find below images that illustrate the funcionalities and an overview of the system's implementation. 
 
-Since the requirements above are met, I do believe this repository can save some time in the implementation of hexagonal prototypes/projects that are unity based. 
-
-Feel free to use it. Any kind of feedback is well appreciated. 
-
-You can find below images that illustrate the funcionalities and an overview of the system's implementation.
+Feel free to use this tool. Any kind of feedback or credit is well appreciated. 
 
 Playable demo [here](https://ycarowr.itch.io/hexagonal-board)
  
@@ -44,5 +42,5 @@ The interface menu to interact with the board data and test the operations.
 2. [Views](/Assets/Scripts/Ui)
 3. [Controller](/Assets/Scripts/BoardSystem/BoardController.cs)
 
-//TODO: Documentation details...
+//TODO: Documentation Overview ...
 
