@@ -5,8 +5,8 @@
 The repository contains an API to create, find and store data inside a hexagonal board using Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
 
 The reasons that I made this project are the following:
-1. I wanted a generic API that could be easily be extented or integrated into a secondary project;
-2. I wanted to have a set of generic classes that manage hexagons and are able to store any kind of data. What I mean by data: creatures, pieces, itens or whatever the main project needs; 
+1. I wanted a generic API that could be easily be extended or integrated into a secondary project;
+2. I wanted to have a set of generic classes that manage hexagons and are able to store any kind of data. What I mean by data are: creatures, pieces, itens or whatever the main project needs; 
 3. I wanted to use the native Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components;
  
 You can find below images that illustrate the functionalities and an overview of the system's implementation. 
