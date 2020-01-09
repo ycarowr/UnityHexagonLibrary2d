@@ -43,7 +43,7 @@ The interface menu to interact with the board data and test the operations.
 3. [Controller](/Assets/Scripts/BoardSystem/BoardController.cs)
 
 ## Board
-I split the entire board implementation in three distict parts:
+I split the board implementation in three distict parts:
 1. [Board](/Assets/Scripts/BoardSystem/Board/Board.cs) has a data shape that determines it's layout. Also holds a list of Positions that store the data elements of the board;
 2. [BoardManipulation](/Assets/Scripts/BoardSystem/Board/BoardManipulationOddR.cs) is resposible to implement the operations such as diagonals, neighbours or anything else that could come up in the future;
 3. [Position](/Assets/Scripts/BoardSystem/BoardController.cs) is the class that holds the elements placed in the board; Currently each position is able to carry one single object, however it can be extended to an array;
