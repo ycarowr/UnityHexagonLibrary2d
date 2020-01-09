@@ -49,7 +49,7 @@ I split the entire board implementation in three distict parts:
 3. [Position](/Assets/Scripts/BoardSystem/BoardController.cs) is the class that holds the elements placed in the board; Currently each position is able to carry one single object, however it can be extended to an array;
 
 ## Coordinates
-There are two different [Coordinate](/Assets/Scripts/BoardSystem/Board/Coordinates) to manage, the Hex and Offset.
+There are two different [Coordinates](/Assets/Scripts/BoardSystem/Board/Coordinates) to manage, the Hex and Offset.
 1. [Hex](Assets/Scripts/BoardSystem/Board/Coordinates/Hex.cs) is used internally by the Manipulation to figure out the necessary points to include in each operation. Operations using this type of coordinate system have simpler algorithms.
 2. [Offset](/Assets/Scripts/BoardSystem/Board/Coordinates/OffsetCoord.cs) is used by Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) native component, in other words, we can't change it; 
 3. [OffsetCoordHelper](Assets/Scripts/BoardSystem/Board/Coordinates/OffsetCoordHelper.cs) is the class that manages the convertion from Hex -> Offset or Offset -> Hex;
