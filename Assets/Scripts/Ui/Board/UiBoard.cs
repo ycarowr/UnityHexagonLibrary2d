@@ -1,5 +1,7 @@
-﻿using HexBoardGame.Runtime;
+﻿using System.Collections.Generic;
+using HexBoardGame.Runtime;
 using HexBoardGame.Runtime.GameBoard;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,6 +9,8 @@ namespace HexBoardGame.UI
 {
     public class UiBoard : MonoBehaviour
     {
+        readonly Dictionary<BoardElement, UiBoardElement> _registerUiElements = new Dictionary<BoardElement,UiBoardElement>(); 
+        
         [SerializeField] BoardController controller;
         [SerializeField] BoardElementsController elementsController;
         [SerializeField] TileBase test;
@@ -24,6 +28,14 @@ namespace HexBoardGame.UI
             TileMap = GetComponentInChildren<Tilemap>();
             controller.OnCreateBoard += OnCreateBoard;
             elementsController.OnAddElement += OnAddElement;
+            elementsController.OnRemoveElement += OnRemoveElement;
+        }
+
+        void OnRemoveElement(BoardElement element, Vector3Int cell)
+        {
+            var uiElement = _registerUiElements[element];
+            ObjectPooler.Instance.Release(uiElement.gameObject);
+            Debug.Log("Relese");
         }
 
         void OnAddElement(BoardElement element, Vector3Int cell)
@@ -35,6 +47,7 @@ namespace HexBoardGame.UI
             var worldPosition = TileMap.CellToWorld(cell);
             uiBoardElement.SetRuntimeElementData(element);
             uiBoardElement.SetWorldPosition(worldPosition);
+            _registerUiElements.Add(element, uiBoardElement);
         }
 
         void CreateBoardUi()

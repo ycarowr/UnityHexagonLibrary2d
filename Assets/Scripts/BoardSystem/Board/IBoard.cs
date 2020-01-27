@@ -11,6 +11,6 @@ namespace HexBoardGame.Runtime.GameBoard
         Orientation Orientation { get; }
         Position[] Positions { get; }
         bool HasPosition(Hex point);
-        Position? GetPosition(Hex point);
+        Position GetPosition(Hex point);
     }
 }

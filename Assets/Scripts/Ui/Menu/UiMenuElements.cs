@@ -6,36 +6,25 @@ namespace HexBoardGame.UI
 {
     public class UiMenuElements : MonoBehaviour
     {
-        [Header("Itens"), SerializeField] 
-        
-        ItemData apple;
-
-        [SerializeField] Button appleButton;
-        [SerializeField] ItemData banana;
-        [SerializeField] Button bananaButton;
         [SerializeField] BoardElementsController controller;
+        
+        [Header("Itens"), SerializeField] ItemData apple;
+        [SerializeField] ItemData banana;
         [SerializeField] ItemData grape;
-        [SerializeField] Button grapeButton;
-
-        [Header("Creatures"), SerializeField]
         
-        CreatureData jellyfish;
-
-        [Header("Menu Buttons"), SerializeField]
-        
-        Button jellyfishButton;
-
+        [Header("Creatures"), SerializeField] CreatureData jellyfish;
         [SerializeField] CreatureData octopus;
-        [SerializeField] Button octopusButton;
-
-        [Header("Remove"), SerializeField] 
-        
-        Button removeButton;
-
         [SerializeField] CreatureData turtle;
+
+        [Header("Menu Buttons"), SerializeField] Button jellyfishButton;
+        [SerializeField] Button appleButton;
+        [SerializeField] Button bananaButton;
+        [SerializeField] Button grapeButton;
         [SerializeField] Button turtleButton;
-
-
+        [SerializeField] Button octopusButton;
+        
+        [Header("Remove"), SerializeField] Button removeButton;
+        
         void Awake()
         {
             BindClickEvents();
@@ -60,6 +49,7 @@ namespace HexBoardGame.UI
             bananaButton.onClick.AddListener(() => controller.SetElementProvider(banana));
             appleButton.onClick.AddListener(() => controller.SetElementProvider(apple));
             grapeButton.onClick.AddListener(() => controller.SetElementProvider(grape));
+            removeButton.onClick.AddListener(() => controller.SetElementProvider(null));
         }
     }
 }

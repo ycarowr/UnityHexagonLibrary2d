@@ -23,7 +23,7 @@ namespace HexBoardGame.Runtime.GameBoard
 
         public bool HasPosition(Hex point) => GetPosition(point) != null;
 
-        public Position? GetPosition(Hex point)
+        public Position GetPosition(Hex point)
         {
             foreach (var i in Positions)
                 if (i.Point == point)

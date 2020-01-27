@@ -1,4 +1,6 @@
-﻿namespace HexBoardGame.Runtime.GameBoard
+﻿using UnityEngine;
+
+namespace HexBoardGame.Runtime.GameBoard
 {
     /// <summary>
     ///     A position in a real game most likely stores some sort of data.
@@ -6,7 +8,7 @@
     ///     <remarks> If this structure grow consider make it a class and pool it, instead. </remarks>
     ///     >
     /// </summary>
-    public struct Position
+    public class Position
     {
         /// <summary>
         ///     The data in the board.

@@ -11,6 +11,7 @@ namespace HexBoardGame.Runtime.GameBoard
         IBoard CurrentBoard { get; set; }
         IDataProvider ElementProvider { get; set; }
         public event Action<BoardElement, Vector3Int> OnAddElement = (element, cell) => { };
+        public event Action<BoardElement, Vector3Int> OnRemoveElement = (element, cell) => { };
         public void SetElementProvider(IDataProvider provider) => ElementProvider = provider;
 
         void Awake()
@@ -21,12 +22,14 @@ namespace HexBoardGame.Runtime.GameBoard
 
         void OnClickTile(Vector3Int cell)
         {
-            if (ElementProvider == null)
-                return;
-
             var hex = GetHexCoordinate(cell);
-            var element = ElementProvider.GetElement();
-            AddElement(element, hex);
+            if (ElementProvider == null)
+                RemoveElement(hex);
+            else
+            {
+                var element = ElementProvider.GetElement();
+                AddElement(element, hex);
+            }
         }
 
         void OnCreateBoard(IBoard board) => CurrentBoard = board;
@@ -34,16 +37,27 @@ namespace HexBoardGame.Runtime.GameBoard
         void AddElement(BoardElement element, Hex hex)
         {
             var position = CurrentBoard.GetPosition(hex);
-            if (!position.HasValue)
+            if (position == null)
                 return;
-
-            position.Value.AddData(element);
+            if (position.HasData())
+                return;
+            position.AddData(element);
 
             var cell = GetCellCoordinate(hex);
             OnAddElement(element, cell);
         }
 
-        public void RemoveElement(Hex hex) => CurrentBoard?.GetPosition(hex)?.RemoveData();
+        void RemoveElement(Hex hex)
+        {
+            var position = CurrentBoard?.GetPosition(hex);
+            if(position == null) 
+                return;
+            if (!position.HasData())
+                return;
+            var data = position.Data;
+            position.RemoveData();
+            OnRemoveElement(data, GetCellCoordinate(hex));
+        }
 
         static Hex GetHexCoordinate(Vector3Int cell) =>
             OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
