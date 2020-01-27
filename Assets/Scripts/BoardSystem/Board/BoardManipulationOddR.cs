@@ -1,8 +1,8 @@
-﻿using HexCardGame.SharedData;
+﻿using HexBoardGame.SharedData;
 using Tools.Extensions.Arrays;
 using UnityEngine;
 
-namespace HexCardGame.Runtime
+namespace HexBoardGame.Runtime
 {
     /// <summary>
     ///     The way to manipulate a board in the Odd-Row layout.

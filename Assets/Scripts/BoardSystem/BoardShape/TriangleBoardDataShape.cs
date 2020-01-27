@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using HexCardGame.Runtime;
+using HexBoardGame.Runtime;
 using UnityEngine;
 
-namespace HexCardGame.SharedData
+namespace HexBoardGame.SharedData
 {
-    [CreateAssetMenu(menuName = "Data/TriangleBoardData", fileName = "TriangleBoardData")]
+    [CreateAssetMenu(menuName = "BoardShape/TriangleBoardData", fileName = "TriangleBoardData")]
     public class TriangleBoardDataShape : BoardDataShape
     {
         readonly List<Hex> _points = new List<Hex>();

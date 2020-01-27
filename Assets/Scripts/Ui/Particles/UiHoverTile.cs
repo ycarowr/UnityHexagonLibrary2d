@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     [RequireComponent(typeof(Tilemap))]
     public class UiHoverTile : MonoBehaviour

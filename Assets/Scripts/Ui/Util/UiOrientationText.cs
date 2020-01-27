@@ -1,4 +1,4 @@
-﻿using HexCardGame.Runtime.GameBoard;
+﻿using HexBoardGame.Runtime.GameBoard;
 using TMPro;
 using UnityEngine;
 

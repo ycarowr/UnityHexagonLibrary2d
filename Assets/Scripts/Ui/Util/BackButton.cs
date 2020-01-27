@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using HexCardGame.UI;
+using HexBoardGame.UI;
 using Tools.Patterns.Singleton;
 using UnityEngine;
 

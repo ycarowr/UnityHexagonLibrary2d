@@ -1,13 +1,14 @@
-﻿using HexCardGame.Runtime;
-using HexCardGame.Runtime.GameBoard;
+﻿using HexBoardGame.Runtime;
+using HexBoardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class UiBoard : MonoBehaviour
     {
         [SerializeField] BoardController controller;
+        [SerializeField] BoardElementsController elementsController;
         [SerializeField] TileBase test;
         IBoard CurrentBoard { get; set; }
         Tilemap TileMap { get; set; }
@@ -22,6 +23,18 @@ namespace HexCardGame.UI
         {
             TileMap = GetComponentInChildren<Tilemap>();
             controller.OnCreateBoard += OnCreateBoard;
+            elementsController.OnAddElement += OnAddElement;
+        }
+
+        void OnAddElement(BoardElement element, Vector3Int cell)
+        {
+            var data = element.DataProvider;
+            var model = data.GetModel();
+            var obj = ObjectPooler.Instance.Get(model);
+            var uiBoardElement = obj.GetComponent<UiBoardElement>();
+            var worldPosition = TileMap.CellToWorld(cell);
+            uiBoardElement.SetRuntimeElementData(element);
+            uiBoardElement.SetWorldPosition(worldPosition);
         }
 
         void CreateBoardUi()

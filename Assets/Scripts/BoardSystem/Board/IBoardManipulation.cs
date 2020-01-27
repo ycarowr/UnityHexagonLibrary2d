@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCardGame.Runtime
+namespace HexBoardGame.Runtime
 {
     /// <summary>
     ///     Interface that manipulates a board shape.

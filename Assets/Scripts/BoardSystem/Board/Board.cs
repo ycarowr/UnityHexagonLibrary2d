@@ -1,6 +1,6 @@
-using HexCardGame.SharedData;
+using HexBoardGame.SharedData;
 
-namespace HexCardGame.Runtime.GameBoard
+namespace HexBoardGame.Runtime.GameBoard
 {
     /// <summary>
     ///     A board is composed by positions that, by themselves, contain a HexCoordinate.

@@ -1,20 +1,20 @@
 using System;
-using HexCardGame.SharedData;
+using HexBoardGame.SharedData;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace HexCardGame.Runtime.GameBoard
+namespace HexBoardGame.Runtime.GameBoard
 {
     public class BoardController : MonoBehaviour
     {
-        public BoardDataShape dataShape;
+        public BoardDataShape boardShape;
         [SerializeField] Tilemap tileMap;
         public IBoard Board { get; private set; }
         public IBoardManipulation BoardManipulation { get; private set; }
         public event Action<IBoard> OnCreateBoard = board => { };
 
         void Start() => CreateBoard();
-        
+
         void CreateBoard()
         {
             //using the tile map orientation to pick the default value
@@ -22,12 +22,12 @@ namespace HexCardGame.Runtime.GameBoard
                 CreateBoardPointy();
             else
                 CreateBoardFlat();
-            BoardManipulation = new BoardManipulationOddR(dataShape);
+            BoardManipulation = new BoardManipulationOddR(boardShape);
         }
-        
+
         public void SetBoarDataAndCreate(BoardDataShape boardDataShape)
         {
-            dataShape = boardDataShape;
+            boardShape = boardDataShape;
             CreateBoard();
         }
 
@@ -35,14 +35,14 @@ namespace HexCardGame.Runtime.GameBoard
         {
             tileMap.orientation = Tilemap.Orientation.YX;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.YXZ;
-            Board = new Board(this, dataShape, Orientation.FlatTop);
+            Board = new Board(this, boardShape, Orientation.FlatTop);
         }
 
         public void CreateBoardPointy()
         {
             tileMap.orientation = Tilemap.Orientation.XY;
             tileMap.layoutGrid.cellSwizzle = GridLayout.CellSwizzle.XYZ;
-            Board = new Board(this, dataShape, Orientation.PointyTop);
+            Board = new Board(this, boardShape, Orientation.PointyTop);
         }
 
         public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);

@@ -1,6 +1,6 @@
 ﻿using Tools.Patterns.GenericPrefabPooler;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class ObjectPooler : PrefabPooler<ObjectPooler>
     {

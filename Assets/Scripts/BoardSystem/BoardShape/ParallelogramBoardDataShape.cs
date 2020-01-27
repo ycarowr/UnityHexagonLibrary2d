@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using HexCardGame.Runtime;
+using HexBoardGame.Runtime;
 using UnityEngine;
 
-namespace HexCardGame.SharedData
+namespace HexBoardGame.SharedData
 {
-    [CreateAssetMenu(menuName = "Data/ParallelogramData", fileName = "ParallelogramData")]
+    [CreateAssetMenu(menuName = "BoardShape/ParallelogramData", fileName = "ParallelogramData")]
     public class ParallelogramBoardDataShape : BoardDataShape
     {
         readonly List<Hex> _points = new List<Hex>();

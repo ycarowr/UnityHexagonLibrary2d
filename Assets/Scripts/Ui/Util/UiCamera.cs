@@ -1,5 +1,5 @@
-﻿using HexCardGame.Runtime;
-using HexCardGame.Runtime.GameBoard;
+﻿using HexBoardGame.Runtime;
+using HexBoardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

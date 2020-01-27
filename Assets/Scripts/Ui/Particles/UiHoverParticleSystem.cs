@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class UiHoverParticleSystem : MonoBehaviour
     {

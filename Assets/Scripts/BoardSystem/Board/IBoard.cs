@@ -1,6 +1,6 @@
-﻿using HexCardGame.SharedData;
+﻿using HexBoardGame.SharedData;
 
-namespace HexCardGame.Runtime.GameBoard
+namespace HexBoardGame.Runtime.GameBoard
 {
     /// <summary>
     ///     Interface of a runtime board. It has a shape with its Hex points, orientation and positions to store data.

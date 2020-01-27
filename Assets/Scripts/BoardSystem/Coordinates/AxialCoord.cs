@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCardGame.Runtime
+namespace HexBoardGame.Runtime
 {
     public struct AxialCoord
     {

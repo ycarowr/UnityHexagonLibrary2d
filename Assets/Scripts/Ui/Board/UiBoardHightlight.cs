@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using HexCardGame.Runtime;
-using HexCardGame.Runtime.GameBoard;
+using HexBoardGame.Runtime;
+using HexBoardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class UiBoardHightlight : MonoBehaviour
     {

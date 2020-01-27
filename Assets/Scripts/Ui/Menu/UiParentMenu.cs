@@ -1,8 +1,8 @@
-﻿using HexCardGame.Runtime.GameBoard;
+﻿using HexBoardGame.Runtime.GameBoard;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public abstract class UiParentMenu : MonoBehaviour, IBackHandler
     {
@@ -36,7 +36,6 @@ namespace HexCardGame.UI
                 hideButton.onClick.AddListener(BackButton.Instance.Pop);
             if (xButton)
                 xButton.onClick.AddListener(BackButton.Instance.Pop);
-            Hide();
         }
 
         protected void Hide()

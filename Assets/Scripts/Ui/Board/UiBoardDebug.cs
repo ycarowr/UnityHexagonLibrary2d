@@ -1,5 +1,5 @@
-﻿using HexCardGame.Runtime;
-using HexCardGame.Runtime.GameBoard;
+﻿using HexBoardGame.Runtime;
+using HexBoardGame.Runtime.GameBoard;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -53,7 +53,7 @@ namespace Game.Ui
             if (CurrentBoard == null)
                 return;
 
-            foreach (var hex in controller.dataShape.GetHexPoints())
+            foreach (var hex in controller.boardShape.GetHexPoints())
             {
                 var cell = BoardManipulationOddR.GetCellCoordinate(hex);
                 var worldPosition = tileMap.CellToWorld(cell);

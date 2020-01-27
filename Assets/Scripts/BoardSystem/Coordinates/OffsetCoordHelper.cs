@@ -1,8 +1,8 @@
 ﻿using System;
-using HexCardGame.Runtime;
+using HexBoardGame.Runtime;
 
 /// <summary>
-///      Helper class that handles all the conversion from HexCoordinate to OffsetCoordinates.
+///     Helper class that handles all the conversion from HexCoordinate to OffsetCoordinates.
 /// </summary>
 public static class OffsetCoordHelper
 {

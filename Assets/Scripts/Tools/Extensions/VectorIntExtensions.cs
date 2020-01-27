@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HexCardGame.Runtime.GameBoard
+namespace HexBoardGame.Runtime.GameBoard
 {
     public static class VectorIntExtensions
     {

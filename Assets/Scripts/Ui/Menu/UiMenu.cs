@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class UiMenu : UiParentMenu
     {
@@ -21,6 +21,12 @@ namespace HexCardGame.UI
 
             MainCamera = Camera.main;
             base.Awake();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            Hide();
         }
 
         void OnZoomChanged(float value) => MainCamera.orthographicSize = value;

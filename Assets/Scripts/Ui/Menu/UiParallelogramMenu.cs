@@ -1,8 +1,8 @@
-﻿using HexCardGame.SharedData;
+﻿using HexBoardGame.SharedData;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     public class UiParallelogramMenu : UiParentMenu
     {
@@ -15,6 +15,12 @@ namespace HexCardGame.UI
         {
             base.Awake();
             confirmButton.onClick.AddListener(OnConfirm);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            Hide();
         }
 
         void OnConfirm()

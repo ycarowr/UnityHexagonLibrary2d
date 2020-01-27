@@ -1,4 +1,4 @@
-﻿namespace HexCardGame.Runtime.GameBoard
+﻿namespace HexBoardGame.Runtime.GameBoard
 {
     public enum Orientation
     {

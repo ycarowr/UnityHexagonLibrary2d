@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
-namespace HexCardGame.UI
+namespace HexBoardGame.UI
 {
     [RequireComponent(typeof(IMouseInput)), RequireComponent(typeof(Tilemap)),
      RequireComponent(typeof(TilemapCollider2D)), RequireComponent(typeof(UiBoard))]
@@ -14,20 +14,20 @@ namespace HexCardGame.UI
         Tilemap TileMap { get; set; }
         UiBoard UiBoard { get; set; }
         IMouseInput Input { get; set; }
-        public event Action<Vector3Int> OnClickTile = tile => { };
-        public event Action<Vector3Int, Vector2> OnRightClickTile = (hex, screenPoint) => { };
+        public event Action<Vector3Int> OnClickTile = cell => { };
+        public event Action<Vector3Int, Vector2> OnRightClickTile = (cell, screenPoint) => { };
 
         void OnPointerClick(PointerEventData eventData)
         {
             var screenPosition = eventData.position;
-            var hex = ConvertPixelToCell(screenPosition);
+            var cell = ConvertPixelToCell(screenPosition);
             switch (eventData.button)
             {
                 case PointerEventData.InputButton.Left:
-                    OnClickTile.Invoke(hex);
+                    OnClickTile.Invoke(cell);
                     break;
                 case PointerEventData.InputButton.Right:
-                    OnRightClickTile.Invoke(hex, screenPosition);
+                    OnRightClickTile.Invoke(cell, screenPosition);
                     break;
             }
         }

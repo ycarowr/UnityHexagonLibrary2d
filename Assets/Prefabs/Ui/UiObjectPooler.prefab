@@ -48,4 +48,5 @@ MonoBehaviour:
   models:
   - {fileID: 8319187887994366088, guid: 5798de64e016653489ac70dd3b188924, type: 3}
   - {fileID: 3841204323083488389, guid: 6d6fcd6432db72747b94af95f210daaf, type: 3}
+  - {fileID: 2425152116069863071, guid: e6eb5ee4f1d1dd947933b77743348126, type: 3}
   startSize: 10

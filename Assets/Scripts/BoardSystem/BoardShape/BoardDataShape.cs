@@ -1,7 +1,7 @@
-﻿using HexCardGame.Runtime;
+﻿using HexBoardGame.Runtime;
 using UnityEngine;
 
-namespace HexCardGame.SharedData
+namespace HexBoardGame.SharedData
 {
     public abstract class BoardDataShape : ScriptableObject
     {

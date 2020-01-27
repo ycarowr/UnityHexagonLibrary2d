@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HexCardGame.Runtime
+namespace HexBoardGame.Runtime
 {
     public struct Hex : IComparable
     {
@@ -29,14 +29,14 @@ namespace HexCardGame.Runtime
         }
 
         #region Operators
-        
+
         public override string ToString() => $"Hex: ({q}, {r}, {s})";
 
         public static Hex Add(Hex a, Hex b) => new Hex(a.q + b.q, a.r + b.r);
         public static Hex Subtract(Hex a, Hex b) => new Hex(a.q - b.q, a.r - b.r);
         public static Hex Multiply(Hex a, int k) => new Hex(a.q * k, a.r * k);
         public static int Distance(Hex a, Hex b) => Subtract(a, b).Length;
-        
+
         public static bool operator ==(Hex a, Hex b) => a.q == b.q && a.r == b.r && a.s == b.s;
         public static bool operator !=(Hex a, Hex b) => !(a == b);
 
