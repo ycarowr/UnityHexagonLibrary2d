@@ -35,7 +35,6 @@ namespace HexBoardGame.UI
         {
             var uiElement = _registerUiElements[element];
             ObjectPooler.Instance.Release(uiElement.gameObject);
-            Debug.Log("Relese");
         }
 
         void OnAddElement(BoardElement element, Vector3Int cell)
