@@ -24,6 +24,8 @@ Playable demo [here](https://ycarowr.itch.io/hexagonal-board)
 |<img width="382" height="210" src="/Assets/Textures/Gifs/diagonals.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/horizontal.gif">|
 |<b>Neighbours</b>|<b>Tile Orientation</b>|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/neighbours.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/orientation.gif">|
+|<b>Add Objects</b>|<b>Remove Objects</b>|
+|<img width="382" height="210" src="/Assets/Textures/Gifs/apples.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/remove.gif">|
 <!---|<b>Hover</b>|<b>Zoom</b>|
 |<img width="382" height="210" src="/Assets/Textures/Gifs/Hover.gif">|<img width="382" height="210" src="/Assets/Textures/Gifs/zoom1.gif">|--->
 
