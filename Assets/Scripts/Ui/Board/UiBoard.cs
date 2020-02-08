@@ -51,6 +51,10 @@ namespace HexBoardGame.UI
 
         void CreateBoardUi()
         {
+            foreach (var element in _registerUiElements.Values) 
+                ObjectPooler.Instance.Release(element.gameObject);
+            
+            _registerUiElements.Clear();
             TileMap.ClearAllTiles();
             foreach (var pos in CurrentBoard.Positions)
             {
