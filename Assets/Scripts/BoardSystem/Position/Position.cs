@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace HexBoardGame.Runtime.GameBoard
+﻿namespace HexBoardGame.Runtime.GameBoard
 {
     /// <summary>
     ///     A position in a real game most likely stores some sort of data.
@@ -10,6 +8,12 @@ namespace HexBoardGame.Runtime.GameBoard
     /// </summary>
     public class Position
     {
+        public Position(Hex point, BoardElement baseData = null)
+        {
+            Point = point;
+            Data = baseData;
+        }
+
         /// <summary>
         ///     The data in the board.
         ///     <remarks> Consider make it an Array if it can hold more than one single object. </remarks>
@@ -18,12 +22,6 @@ namespace HexBoardGame.Runtime.GameBoard
         public BoardElement Data { get; private set; }
 
         public Hex Point { get; }
-
-        public Position(Hex point, BoardElement baseData = null)
-        {
-            Point = point;
-            Data = baseData;
-        }
 
         public void AddData(BoardElement baseData) => Data = baseData;
         public void RemoveData() => Data = null;

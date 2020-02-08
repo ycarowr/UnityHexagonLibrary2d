@@ -24,7 +24,9 @@ namespace HexBoardGame.Runtime.GameBoard
         {
             var hex = GetHexCoordinate(cell);
             if (ElementProvider == null)
+            {
                 RemoveElement(hex);
+            }
             else
             {
                 var element = ElementProvider.GetElement();
@@ -50,7 +52,7 @@ namespace HexBoardGame.Runtime.GameBoard
         void RemoveElement(Hex hex)
         {
             var position = CurrentBoard?.GetPosition(hex);
-            if(position == null) 
+            if (position == null)
                 return;
             if (!position.HasData())
                 return;

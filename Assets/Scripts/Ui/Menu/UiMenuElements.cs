@@ -6,25 +6,26 @@ namespace HexBoardGame.UI
 {
     public class UiMenuElements : MonoBehaviour
     {
-        [SerializeField] BoardElementsController controller;
-        
         [Header("Itens"), SerializeField] ItemData apple;
-        [SerializeField] ItemData banana;
-        [SerializeField] ItemData grape;
-        
-        [Header("Creatures"), SerializeField] CreatureData jellyfish;
-        [SerializeField] CreatureData octopus;
-        [SerializeField] CreatureData turtle;
-
-        [Header("Menu Buttons"), SerializeField] Button jellyfishButton;
         [SerializeField] Button appleButton;
+        [SerializeField] ItemData banana;
         [SerializeField] Button bananaButton;
+        [SerializeField] BoardElementsController controller;
+        [SerializeField] ItemData grape;
         [SerializeField] Button grapeButton;
-        [SerializeField] Button turtleButton;
+
+        [Header("Creatures"), SerializeField] CreatureData jellyfish;
+
+        [Header("Menu Buttons"), SerializeField]
+        Button jellyfishButton;
+
+        [SerializeField] CreatureData octopus;
         [SerializeField] Button octopusButton;
-        
+
         [Header("Remove"), SerializeField] Button removeButton;
-        
+        [SerializeField] CreatureData turtle;
+        [SerializeField] Button turtleButton;
+
         void Awake()
         {
             BindClickEvents();

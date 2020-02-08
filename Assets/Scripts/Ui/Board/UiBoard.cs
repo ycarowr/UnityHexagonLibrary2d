@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using HexBoardGame.Runtime;
 using HexBoardGame.Runtime.GameBoard;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,8 +8,9 @@ namespace HexBoardGame.UI
 {
     public class UiBoard : MonoBehaviour
     {
-        readonly Dictionary<BoardElement, UiBoardElement> _registerUiElements = new Dictionary<BoardElement,UiBoardElement>(); 
-        
+        readonly Dictionary<BoardElement, UiBoardElement> _registerUiElements =
+            new Dictionary<BoardElement, UiBoardElement>();
+
         [SerializeField] BoardController controller;
         [SerializeField] BoardElementsController elementsController;
         [SerializeField] TileBase test;

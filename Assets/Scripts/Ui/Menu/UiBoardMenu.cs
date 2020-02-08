@@ -15,7 +15,7 @@ namespace HexBoardGame.UI
         [SerializeField] Button horizontalButton;
 
         [SerializeField,
-         Tooltip("Change the resolution to make the placement of the menu (it depends on the aspect ratio).")] 
+         Tooltip("Change the resolution to make the placement of the menu (it depends on the aspect ratio).")]
         bool isSetResolution = true;
 
         [SerializeField] RectTransform menu;
