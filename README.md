@@ -4,11 +4,11 @@
 # A hexagonal board implementation in Unity
 <img src="https://media.istockphoto.com/vectors/polygon-background-for-christmas-vector-id619411136">
 
-The repository contains an API to create, find and store data inside a hexagonal board using Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) and it's references. 
+The repository contains an API to create, find and store data inside a hexagonal board using Unity [Tile Maps](https://docs.unity3d.com/Manual/class-Tilemap.html) and the math described by [redblob](https://www.redblobgames.com/grids/hexagons/) & references. 
 
-The reasons that I made this project are the following:
+A few reasons why I made the project:
 1. I wanted a generic API that could be easily be extended or integrated into a secondary project;
-2. I wanted to have a set of generic classes that manage hexagons and are able to store any kind of data. What I mean by data are: creatures, pieces, itens or whatever the main project needs; 
+2. I wanted set of generic classes that manage hexagons and are able to store any kind of data. What I mean by data: creatures, pieces, itens or whatever a main project needs; 
 3. I wanted to use the native Unity [TileMaps](https://docs.unity3d.com/Manual/class-Tilemap.html) components;
  
 You can find below images that illustrate the functionalities and an overview of the system's implementation. 
@@ -47,10 +47,10 @@ The interface menu to interact with the board data and test the operations.
 3. [Controller](/Assets/Scripts/BoardSystem/BoardController.cs)
 
 ## Board
-I split the board implementation in three distict parts:
-1. [Board](/Assets/Scripts/BoardSystem/Board/Board.cs) has a data shape that determines it's layout. Also holds a list of Positions that store the data elements of the board;
+I split the board implementation in three distinct parts:
+1. [Board](/Assets/Scripts/BoardSystem/Board/Board.cs) has a data shape that determines it's layout. Also holds a list of Positions that store the data elements on the board;
 2. [BoardManipulation](/Assets/Scripts/BoardSystem/Board/BoardManipulationOddR.cs) is resposible to implement the operations such as diagonals, neighbours or anything else that could come up in the future;
-3. [Position](/Assets/Scripts/BoardSystem/BoardController.cs) is the class that holds the elements placed in the board; Currently each position is able to carry one single object, however it can be extended to an array;
+3. [Position](/Assets/Scripts/BoardSystem/BoardController.cs) is the class that holds the elements placed in the board; Currently each position is able to hold one single object, however it can be extended to an array;
 
 ## Coordinates
 There are two different [Coordinates](/Assets/Scripts/BoardSystem/Board/Coordinates) to manage, the Hex and Offset.
