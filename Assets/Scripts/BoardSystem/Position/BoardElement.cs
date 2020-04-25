@@ -9,7 +9,11 @@ namespace HexBoardGame.Runtime.GameBoard
     /// </summary>
     public abstract class BoardElement
     {
-        protected BoardElement(IDataProvider dataProvider) => DataProvider = dataProvider;
+        protected BoardElement(IDataProvider dataProvider)
+        {
+            DataProvider = dataProvider;
+        }
+
         public IDataProvider DataProvider { get; }
     }
 

@@ -6,12 +6,12 @@ namespace HexBoardGame.UI
     [RequireComponent(typeof(Tilemap))]
     public class UiHoverTile : MonoBehaviour
     {
-        Camera Camera { get; set; }
-        Tilemap TileMap { get; set; }
-        Transform HoverTransform { get; set; }
-        UiHoverParticleSystem Hover { get; set; }
+        private Camera Camera { get; set; }
+        private Tilemap TileMap { get; set; }
+        private Transform HoverTransform { get; set; }
+        private UiHoverParticleSystem Hover { get; set; }
 
-        void Awake()
+        private void Awake()
         {
             Camera = Camera.main;
             TileMap = GetComponent<Tilemap>();
@@ -19,17 +19,23 @@ namespace HexBoardGame.UI
             HoverTransform = Hover.transform;
         }
 
-        void HideHover() => Hover.Hide();
+        private void HideHover()
+        {
+            Hover.Hide();
+        }
 
-        void ShowHover(Vector3 position)
+        private void ShowHover(Vector3 position)
         {
             HoverTransform.position = position;
             Hover.Show();
         }
 
-        void Update() => CalculateHoverPosition();
+        private void Update()
+        {
+            CalculateHoverPosition();
+        }
 
-        void CalculateHoverPosition()
+        private void CalculateHoverPosition()
         {
             var mousePosition = Input.mousePosition;
             var worldHoverPosition = Camera.ScreenToWorldPoint(mousePosition);

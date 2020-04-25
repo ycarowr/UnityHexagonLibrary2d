@@ -8,7 +8,10 @@
 
         public static T Instance { get; private set; } = CreateInstance();
 
-        static T CreateInstance() => Instance ?? (Instance = new T());
+        private static T CreateInstance()
+        {
+            return Instance ?? (Instance = new T());
+        }
 
         public void InjectInstance(T instance)
         {

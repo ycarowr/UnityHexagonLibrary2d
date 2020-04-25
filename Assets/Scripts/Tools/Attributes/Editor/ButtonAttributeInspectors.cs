@@ -7,7 +7,7 @@ namespace Tools.Attributes.Editor
     [CanEditMultipleObjects, CustomEditor(typeof(Object), true)]
     public class ButtonAttributeInspectors : UnityEditor.Editor
     {
-        MethodInfo[] Methods => target.GetType()
+        private MethodInfo[] Methods => target.GetType()
             .GetMethods(BindingFlags.Instance |
                         BindingFlags.Static |
                         BindingFlags.NonPublic |
@@ -19,7 +19,7 @@ namespace Tools.Attributes.Editor
             DrawMethods();
         }
 
-        void DrawMethods()
+        private void DrawMethods()
         {
             if (Methods.Length < 1)
                 return;

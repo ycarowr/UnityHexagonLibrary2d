@@ -6,10 +6,10 @@ namespace HexBoardGame.UI
 {
     public class UiRectangleMenu : UiParentMenu
     {
-        [SerializeField] Button confirmButton;
-        [SerializeField] RectBoardDataShape dataShape;
-        [SerializeField] Slider height;
-        [SerializeField] Slider width;
+        [SerializeField] private Button confirmButton;
+        [SerializeField] private RectBoardDataShape dataShape;
+        [SerializeField] private Slider height;
+        [SerializeField] private Slider width;
 
         protected override void Awake()
         {
@@ -23,7 +23,7 @@ namespace HexBoardGame.UI
             Hide();
         }
 
-        void OnConfirm()
+        private void OnConfirm()
         {
             dataShape.width = (int) width.value;
             dataShape.height = (int) height.value;

@@ -6,33 +6,33 @@ namespace HexBoardGame.UI
 {
     public class UiMenuElements : MonoBehaviour
     {
-        [Header("Itens"), SerializeField] ItemData apple;
-        [SerializeField] Button appleButton;
-        [SerializeField] ItemData banana;
-        [SerializeField] Button bananaButton;
-        [SerializeField] BoardElementsController controller;
-        [SerializeField] ItemData grape;
-        [SerializeField] Button grapeButton;
+        [Header("Itens"), SerializeField] private ItemData apple;
+        [SerializeField] private Button appleButton;
+        [SerializeField] private ItemData banana;
+        [SerializeField] private Button bananaButton;
+        [SerializeField] private BoardElementsController controller;
+        [SerializeField] private ItemData grape;
+        [SerializeField] private Button grapeButton;
 
-        [Header("Creatures"), SerializeField] CreatureData jellyfish;
+        [Header("Creatures"), SerializeField] private CreatureData jellyfish;
 
         [Header("Menu Buttons"), SerializeField]
-        Button jellyfishButton;
+        private Button jellyfishButton;
 
-        [SerializeField] CreatureData octopus;
-        [SerializeField] Button octopusButton;
+        [SerializeField] private CreatureData octopus;
+        [SerializeField] private Button octopusButton;
 
-        [Header("Remove"), SerializeField] Button removeButton;
-        [SerializeField] CreatureData turtle;
-        [SerializeField] Button turtleButton;
+        [Header("Remove"), SerializeField] private Button removeButton;
+        [SerializeField] private CreatureData turtle;
+        [SerializeField] private Button turtleButton;
 
-        void Awake()
+        private void Awake()
         {
             BindClickEvents();
             BindArtwork();
         }
 
-        void BindArtwork()
+        private void BindArtwork()
         {
             jellyfishButton.image.sprite = jellyfish.GetArtwork();
             octopusButton.image.sprite = octopus.GetArtwork();
@@ -42,7 +42,7 @@ namespace HexBoardGame.UI
             grapeButton.image.sprite = grape.GetArtwork();
         }
 
-        void BindClickEvents()
+        private void BindClickEvents()
         {
             jellyfishButton.onClick.AddListener(() => controller.SetElementProvider(jellyfish));
             octopusButton.onClick.AddListener(() => controller.SetElementProvider(octopus));

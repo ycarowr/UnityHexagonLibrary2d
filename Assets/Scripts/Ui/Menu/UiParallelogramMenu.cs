@@ -6,10 +6,10 @@ namespace HexBoardGame.UI
 {
     public class UiParallelogramMenu : UiParentMenu
     {
-        [SerializeField] Button confirmButton;
-        [SerializeField] ParallelogramBoardDataShape dataShape;
-        [SerializeField] Slider height;
-        [SerializeField] Slider width;
+        [SerializeField] private Button confirmButton;
+        [SerializeField] private ParallelogramBoardDataShape dataShape;
+        [SerializeField] private Slider height;
+        [SerializeField] private Slider width;
 
         protected override void Awake()
         {
@@ -23,7 +23,7 @@ namespace HexBoardGame.UI
             Hide();
         }
 
-        void OnConfirm()
+        private void OnConfirm()
         {
             dataShape.width = (int) width.value;
             dataShape.height = (int) height.value;

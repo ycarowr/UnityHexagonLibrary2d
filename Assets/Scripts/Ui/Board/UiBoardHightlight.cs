@@ -8,14 +8,14 @@ namespace HexBoardGame.UI
 {
     public class UiBoardHightlight : MonoBehaviour
     {
-        readonly Dictionary<Hex, UiHoverParticleSystem> _highlights =
+        private readonly Dictionary<Hex, UiHoverParticleSystem> _highlights =
             new Dictionary<Hex, UiHoverParticleSystem>();
 
-        [SerializeField] BoardController controller;
-        [SerializeField] GameObject highlightTiles;
-        Tilemap TileMap { get; set; }
+        [SerializeField] private BoardController controller;
+        [SerializeField] private GameObject highlightTiles;
+        private Tilemap TileMap { get; set; }
 
-        void OnCreateBoard(IBoard board)
+        private void OnCreateBoard(IBoard board)
         {
             Hide();
             _highlights.Clear();
@@ -32,13 +32,13 @@ namespace HexBoardGame.UI
             }
         }
 
-        void Awake()
+        private void Awake()
         {
             TileMap = GetComponentInChildren<Tilemap>();
             controller.OnCreateBoard += OnCreateBoard;
         }
 
-        void Hide()
+        private void Hide()
         {
             foreach (var i in _highlights.Values)
                 i.Hide();

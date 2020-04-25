@@ -11,13 +11,19 @@ public interface IBackHandler
 
 public class BackButton : SingletonMB<BackButton>
 {
-    readonly Stack<IBackHandler> _windows = new Stack<IBackHandler>();
+    private readonly Stack<IBackHandler> _windows = new Stack<IBackHandler>();
 
-    [SerializeField] UiMenu uiMenu;
+    [SerializeField] private UiMenu uiMenu;
 
-    public void Push(IBackHandler window) => _windows?.Push(window);
+    public void Push(IBackHandler window)
+    {
+        _windows?.Push(window);
+    }
 
-    public void Clear() => _windows.Clear();
+    public void Clear()
+    {
+        _windows.Clear();
+    }
 
     public void Pop()
     {
@@ -28,7 +34,7 @@ public class BackButton : SingletonMB<BackButton>
     }
 
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

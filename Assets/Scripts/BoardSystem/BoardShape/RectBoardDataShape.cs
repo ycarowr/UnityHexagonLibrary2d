@@ -7,7 +7,7 @@ namespace HexBoardGame.SharedData
     [CreateAssetMenu(menuName = "BoardShape/RectBoardData", fileName = "RectBoardData")]
     public class RectBoardDataShape : BoardDataShape
     {
-        readonly List<Hex> _points = new List<Hex>();
+        private readonly List<Hex> _points = new List<Hex>();
         [Range(1, 10)] public int height;
         [Range(1, 10)] public int width;
 

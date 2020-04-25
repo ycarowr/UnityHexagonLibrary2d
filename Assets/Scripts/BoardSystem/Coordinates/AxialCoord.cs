@@ -44,6 +44,9 @@ namespace HexBoardGame.Runtime
             return q == other.q && r == other.r;
         }
 
-        public Vector3Int ToVector3Int() => new Vector3Int(q, r, 0);
+        public Vector3Int ToVector3Int()
+        {
+            return new Vector3Int(q, r, 0);
+        }
     }
 }

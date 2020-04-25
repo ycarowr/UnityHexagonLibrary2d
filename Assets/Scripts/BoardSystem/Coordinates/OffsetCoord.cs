@@ -19,7 +19,13 @@ public struct OffsetCoord
         this.row = row;
     }
 
-    public Vector3Int ToVector3Int() => new Vector3Int(col, row, 0);
+    public Vector3Int ToVector3Int()
+    {
+        return new Vector3Int(col, row, 0);
+    }
 
-    public override string ToString() => $"Offset: (x: {col}, y: {row})";
+    public override string ToString()
+    {
+        return $"Offset: (x: {col}, y: {row})";
+    }
 }

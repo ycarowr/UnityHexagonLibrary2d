@@ -7,7 +7,7 @@ namespace HexBoardGame.SharedData
     [CreateAssetMenu(menuName = "BoardShape/ParallelogramData", fileName = "ParallelogramData")]
     public class ParallelogramBoardDataShape : BoardDataShape
     {
-        readonly List<Hex> _points = new List<Hex>();
+        private readonly List<Hex> _points = new List<Hex>();
         [Range(2, 10)] public int height;
         [Range(2, 10)] public int width;
 

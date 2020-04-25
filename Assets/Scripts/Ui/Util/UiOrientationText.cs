@@ -7,14 +7,17 @@ namespace Game.Ui
     [RequireComponent(typeof(TMP_Text))]
     public class UiOrientationText : UiTmpText
     {
-        const string Vertical = "Vertical";
-        const string Horizontal = "Horizontal";
+        private const string Vertical = "Vertical";
+        private const string Horizontal = "Horizontal";
 
-        [SerializeField] BoardController controller;
+        [SerializeField] private BoardController controller;
 
-        void OnEnable() => CheckOrientation();
+        private void OnEnable()
+        {
+            CheckOrientation();
+        }
 
-        void CheckOrientation()
+        private void CheckOrientation()
         {
             var board = controller.Board;
             if (board == null)

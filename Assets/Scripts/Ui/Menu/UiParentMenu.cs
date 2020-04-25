@@ -22,7 +22,10 @@ namespace HexBoardGame.UI
             OnShow();
         }
 
-        public void Back() => Hide();
+        public void Back()
+        {
+            Hide();
+        }
 
         protected virtual void Awake()
         {

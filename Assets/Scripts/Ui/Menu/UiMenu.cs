@@ -5,11 +5,11 @@ namespace HexBoardGame.UI
 {
     public class UiMenu : UiParentMenu
     {
-        [SerializeField] Button[] buttons;
-        [SerializeField] Toggle flatToggle;
-        [SerializeField] Toggle pointyToggle;
-        [SerializeField] Slider zoomSlider;
-        Camera MainCamera { get; set; }
+        [SerializeField] private Button[] buttons;
+        [SerializeField] private Toggle flatToggle;
+        [SerializeField] private Toggle pointyToggle;
+        [SerializeField] private Slider zoomSlider;
+        private Camera MainCamera { get; set; }
 
         protected override void Awake()
         {
@@ -29,14 +29,17 @@ namespace HexBoardGame.UI
             Hide();
         }
 
-        void OnZoomChanged(float value) => MainCamera.orthographicSize = value;
+        private void OnZoomChanged(float value)
+        {
+            MainCamera.orthographicSize = value;
+        }
 
-        void OnPointyTogglePressed(bool isEnabled)
+        private void OnPointyTogglePressed(bool isEnabled)
         {
             if (isEnabled) boardController.CreateBoardPointy();
         }
 
-        void OnFlatTogglePressed(bool isEnabled)
+        private void OnFlatTogglePressed(bool isEnabled)
         {
             if (isEnabled) boardController.CreateBoardFlat();
         }

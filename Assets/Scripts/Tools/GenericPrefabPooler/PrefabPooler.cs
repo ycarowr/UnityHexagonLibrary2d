@@ -7,8 +7,8 @@ namespace Tools.Patterns.GenericPrefabPooler
     public class PrefabPooler<T> : SingletonMB<T>
         where T : class
     {
-        readonly Dictionary<GameObject, List<GameObject>> busy = new Dictionary<GameObject, List<GameObject>>();
-        readonly Dictionary<GameObject, List<GameObject>> free = new Dictionary<GameObject, List<GameObject>>();
+        private readonly Dictionary<GameObject, List<GameObject>> busy = new Dictionary<GameObject, List<GameObject>>();
+        private readonly Dictionary<GameObject, List<GameObject>> free = new Dictionary<GameObject, List<GameObject>>();
 
         [Tooltip("All pooled models have to be inside this array before the initialization")]
         public GameObject[] models;
@@ -17,7 +17,7 @@ namespace Tools.Patterns.GenericPrefabPooler
         public int startSize = 10;
 
 
-        void OnEnable()
+        private void OnEnable()
         {
             if (!Application.isPlaying)
                 return;
@@ -25,7 +25,7 @@ namespace Tools.Patterns.GenericPrefabPooler
             Initialize();
         }
 
-        void Initialize()
+        private void Initialize()
         {
             if (models.Length == 0)
                 Debug.LogError("Can't pool empty objects.");

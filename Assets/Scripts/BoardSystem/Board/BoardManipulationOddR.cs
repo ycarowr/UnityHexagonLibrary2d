@@ -9,15 +9,18 @@ namespace HexBoardGame.Runtime
     /// </summary>
     public class BoardManipulationOddR : IBoardManipulation
     {
-        static readonly Hex[] NeighboursDirections =
+        private static readonly Hex[] NeighboursDirections =
         {
             new Hex(1, 0), new Hex(1, -1), new Hex(0, -1),
             new Hex(-1, 0), new Hex(-1, 1), new Hex(0, 1)
         };
 
-        readonly Hex[] _hexPoints;
+        private readonly Hex[] _hexPoints;
 
-        public BoardManipulationOddR(BoardDataShape dataShape) => _hexPoints = dataShape.GetHexPoints();
+        public BoardManipulationOddR(BoardDataShape dataShape)
+        {
+            _hexPoints = dataShape.GetHexPoints();
+        }
 
         public Hex[] GetNeighbours(Vector3Int cell)
         {
@@ -37,7 +40,7 @@ namespace HexBoardGame.Runtime
         /// <summary>
         ///     If the point is present among the starting configuration returns it. Otherwise returns a empty array.
         /// </summary>
-        Hex[] GetIfExistsOrEmpty(Hex hex)
+        private Hex[] GetIfExistsOrEmpty(Hex hex)
         {
             foreach (var i in _hexPoints)
                 if (i == hex)
@@ -54,7 +57,10 @@ namespace HexBoardGame.Runtime
             return GetIfExistsOrEmpty(center).Length > 0;
         }
 
-        public Hex[] GetVertical(Vector3Int cell, int length) => new Hex[] { };
+        public Hex[] GetVertical(Vector3Int cell, int length)
+        {
+            return new Hex[] { };
+        }
 
         public Hex[] GetHorizontal(Vector3Int cell, int length)
         {
@@ -111,15 +117,19 @@ namespace HexBoardGame.Runtime
         ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap with a vector3Int cell.
         ///     The internal board manipulation works with HexCoordinates, this method converts vector3int cell to hex.
         /// </summary>
-        public static Hex GetHexCoordinate(Vector3Int cell) =>
-            OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
+        public static Hex GetHexCoordinate(Vector3Int cell)
+        {
+            return OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
+        }
 
         /// <summary>
         ///     Unity by default makes use the R-Offset Odd to reference tiles inside a TileMap with a vector3Int cell.
         ///     The internal board manipulation works with HexCoordinates, this method converts hex to unity vector3int cell.
         /// </summary>
-        public static Vector3Int GetCellCoordinate(Hex hex) =>
-            OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, hex).ToVector3Int();
+        public static Vector3Int GetCellCoordinate(Hex hex)
+        {
+            return OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, hex).ToVector3Int();
+        }
 
         #endregion
     }

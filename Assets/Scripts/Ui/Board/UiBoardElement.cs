@@ -5,9 +5,9 @@ namespace HexBoardGame.UI
 {
     public class UiBoardElement : MonoBehaviour
     {
-        BoardElement RuntimeData { get; set; }
-        SpriteRenderer SpriteRenderer { get; set; }
-        Transform Transform { get; set; }
+        private BoardElement RuntimeData { get; set; }
+        private SpriteRenderer SpriteRenderer { get; set; }
+        private Transform Transform { get; set; }
 
         protected virtual void Awake()
         {
@@ -22,8 +22,14 @@ namespace HexBoardGame.UI
             UpdateView();
         }
 
-        public void SetWorldPosition(Vector3 position) => Transform.position = position;
+        public void SetWorldPosition(Vector3 position)
+        {
+            Transform.position = position;
+        }
 
-        void UpdateView() => SpriteRenderer.sprite = RuntimeData.DataProvider.GetArtwork();
+        private void UpdateView()
+        {
+            SpriteRenderer.sprite = RuntimeData.DataProvider.GetArtwork();
+        }
     }
 }

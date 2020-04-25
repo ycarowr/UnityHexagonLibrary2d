@@ -7,7 +7,7 @@ namespace HexBoardGame.SharedData
     [CreateAssetMenu(menuName = "BoardShape/TriangleBoardData", fileName = "TriangleBoardData")]
     public class TriangleBoardDataShape : BoardDataShape
     {
-        readonly List<Hex> _points = new List<Hex>();
+        private readonly List<Hex> _points = new List<Hex>();
         [Range(1, 10)] public int size;
 
         public override Hex[] GetHexPoints()

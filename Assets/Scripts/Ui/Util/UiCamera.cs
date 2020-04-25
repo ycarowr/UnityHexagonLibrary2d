@@ -5,19 +5,19 @@ using UnityEngine.Tilemaps;
 
 public class UiCamera : MonoBehaviour
 {
-    Transform _myTransform;
-    [SerializeField] BoardController controller;
-    [SerializeField] Tilemap tileMap;
-    Camera MainCamera { get; set; }
+    private Transform _myTransform;
+    [SerializeField] private BoardController controller;
+    [SerializeField] private Tilemap tileMap;
+    private Camera MainCamera { get; set; }
 
-    void Awake()
+    private void Awake()
     {
         MainCamera = Camera.main;
         controller.OnCreateBoard += OnCreateBoard;
         _myTransform = transform;
     }
 
-    void OnCreateBoard(IBoard board)
+    private void OnCreateBoard(IBoard board)
     {
         var maxPosY = float.MinValue;
         var maxPosX = float.MinValue;
@@ -44,7 +44,7 @@ public class UiCamera : MonoBehaviour
         Centralize(minPosX, minPosY, maxPosX, maxPosY);
     }
 
-    void Centralize(float minPosX, float minPosY, float maxPosX, float maxPosY)
+    private void Centralize(float minPosX, float minPosY, float maxPosX, float maxPosY)
     {
         var mediumX = (minPosX + maxPosX) / 2;
         var mediumY = (minPosY + maxPosY) / 2;

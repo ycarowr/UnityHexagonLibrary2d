@@ -16,15 +16,25 @@
 
         /// <summary>
         ///     The data in the board.
-        ///     <remarks> Consider make it an Array if it can hold more than one single object. </remarks>
-        ///     >
+        ///     <remarks> Consider make it an Array if it can hold more than one single object. </remarks>>
         /// </summary>
         public BoardElement Data { get; private set; }
 
         public Hex Point { get; }
 
-        public void AddData(BoardElement baseData) => Data = baseData;
-        public void RemoveData() => Data = null;
-        public bool HasData() => Data != null;
+        public void AddData(BoardElement baseData)
+        {
+            Data = baseData;
+        }
+
+        public void RemoveData()
+        {
+            Data = null;
+        }
+
+        public bool HasData()
+        {
+            return Data != null;
+        }
     }
 }

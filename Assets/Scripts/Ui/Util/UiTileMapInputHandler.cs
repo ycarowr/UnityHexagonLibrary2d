@@ -10,14 +10,14 @@ namespace HexBoardGame.UI
      RequireComponent(typeof(TilemapCollider2D)), RequireComponent(typeof(UiBoard))]
     public class UiTileMapInputHandler : MonoBehaviour
     {
-        Camera Camera { get; set; }
-        Tilemap TileMap { get; set; }
-        UiBoard UiBoard { get; set; }
-        IMouseInput Input { get; set; }
+        private Camera Camera { get; set; }
+        private Tilemap TileMap { get; set; }
+        private UiBoard UiBoard { get; set; }
+        private IMouseInput Input { get; set; }
         public event Action<Vector3Int> OnClickTile = cell => { };
         public event Action<Vector3Int, Vector2> OnRightClickTile = (cell, screenPoint) => { };
 
-        void OnPointerClick(PointerEventData eventData)
+        private void OnPointerClick(PointerEventData eventData)
         {
             var screenPosition = eventData.position;
             var cell = ConvertPixelToCell(screenPosition);
@@ -32,7 +32,7 @@ namespace HexBoardGame.UI
             }
         }
 
-        void Awake()
+        private void Awake()
         {
             Camera = Camera.main;
             UiBoard = GetComponent<UiBoard>();
@@ -41,7 +41,7 @@ namespace HexBoardGame.UI
             Input.OnPointerClick += OnPointerClick;
         }
 
-        Vector3Int ConvertPixelToCell(Vector2 screenPoint)
+        private Vector3Int ConvertPixelToCell(Vector2 screenPoint)
         {
             var worldPosition = Camera.ScreenToWorldPoint(screenPoint);
             var cell = TileMap.WorldToCell(worldPosition);

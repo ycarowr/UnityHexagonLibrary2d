@@ -5,10 +5,22 @@ namespace HexBoardGame.Runtime.GameBoard
     [CreateAssetMenu]
     public class ItemData : ScriptableObject, IDataProvider
     {
-        [SerializeField] Sprite artwork;
-        [SerializeField] GameObject model;
-        public BoardElement GetElement() => new BoardItem(this);
-        public Sprite GetArtwork() => artwork;
-        public GameObject GetModel() => model;
+        [SerializeField] private Sprite artwork;
+        [SerializeField] private GameObject model;
+
+        public BoardElement GetElement()
+        {
+            return new BoardItem(this);
+        }
+
+        public Sprite GetArtwork()
+        {
+            return artwork;
+        }
+
+        public GameObject GetModel()
+        {
+            return model;
+        }
     }
 }

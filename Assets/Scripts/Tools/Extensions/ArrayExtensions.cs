@@ -52,7 +52,10 @@ namespace Tools.Extensions.Arrays
             Debug.Log(log);
         }
 
-        public static T[] Append<T>(this T[] array, T[] other) => ArrayHelper.Append(ref array, other);
+        public static T[] Append<T>(this T[] array, T[] other)
+        {
+            return ArrayHelper.Append(ref array, other);
+        }
     }
 
     public static class ArrayHelper

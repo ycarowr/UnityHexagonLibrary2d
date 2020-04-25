@@ -4,8 +4,8 @@ namespace HexBoardGame.UI
 {
     public class UiHoverParticleSystem : MonoBehaviour
     {
-        [SerializeField] ParticleSystem[] particles;
-        [SerializeField] Renderer[] renderers;
+        [SerializeField] private ParticleSystem[] particles;
+        [SerializeField] private Renderer[] renderers;
 
         public void Show(int layer = -1)
         {

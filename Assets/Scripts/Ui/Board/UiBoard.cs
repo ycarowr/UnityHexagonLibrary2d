@@ -8,22 +8,22 @@ namespace HexBoardGame.UI
 {
     public class UiBoard : MonoBehaviour
     {
-        readonly Dictionary<BoardElement, UiBoardElement> _registerUiElements =
+        private readonly Dictionary<BoardElement, UiBoardElement> _registerUiElements =
             new Dictionary<BoardElement, UiBoardElement>();
 
-        [SerializeField] BoardController controller;
-        [SerializeField] BoardElementsController elementsController;
-        [SerializeField] TileBase test;
-        IBoard CurrentBoard { get; set; }
-        Tilemap TileMap { get; set; }
+        [SerializeField] private BoardController controller;
+        [SerializeField] private BoardElementsController elementsController;
+        [SerializeField] private TileBase test;
+        private IBoard CurrentBoard { get; set; }
+        private Tilemap TileMap { get; set; }
 
-        void OnCreateBoard(IBoard board)
+        private void OnCreateBoard(IBoard board)
         {
             CurrentBoard = board;
             CreateBoardUi();
         }
 
-        void Awake()
+        private void Awake()
         {
             TileMap = GetComponentInChildren<Tilemap>();
             controller.OnCreateBoard += OnCreateBoard;
@@ -31,13 +31,13 @@ namespace HexBoardGame.UI
             elementsController.OnRemoveElement += OnRemoveElement;
         }
 
-        void OnRemoveElement(BoardElement element, Vector3Int cell)
+        private void OnRemoveElement(BoardElement element, Vector3Int cell)
         {
             var uiElement = _registerUiElements[element];
             ObjectPooler.Instance.Release(uiElement.gameObject);
         }
 
-        void OnAddElement(BoardElement element, Vector3Int cell)
+        private void OnAddElement(BoardElement element, Vector3Int cell)
         {
             var data = element.DataProvider;
             var model = data.GetModel();
@@ -49,11 +49,11 @@ namespace HexBoardGame.UI
             _registerUiElements.Add(element, uiBoardElement);
         }
 
-        void CreateBoardUi()
+        private void CreateBoardUi()
         {
-            foreach (var element in _registerUiElements.Values) 
+            foreach (var element in _registerUiElements.Values)
                 ObjectPooler.Instance.Release(element.gameObject);
-            
+
             _registerUiElements.Clear();
             TileMap.ClearAllTiles();
             foreach (var pos in CurrentBoard.Positions)

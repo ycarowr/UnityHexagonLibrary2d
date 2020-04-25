@@ -8,14 +8,17 @@ namespace HexBoardGame.Runtime.GameBoard
     public class BoardController : MonoBehaviour
     {
         public BoardDataShape boardShape;
-        [SerializeField] Tilemap tileMap;
+        [SerializeField] private Tilemap tileMap;
         public IBoard Board { get; private set; }
         public IBoardManipulation BoardManipulation { get; private set; }
         public event Action<IBoard> OnCreateBoard = board => { };
 
-        void Start() => CreateBoard();
+        private void Start()
+        {
+            CreateBoard();
+        }
 
-        void CreateBoard()
+        private void CreateBoard()
         {
             //using the tile map orientation to pick the default value
             if (tileMap.orientation == Tilemap.Orientation.XY)
@@ -45,6 +48,9 @@ namespace HexBoardGame.Runtime.GameBoard
             Board = new Board(this, boardShape, Orientation.PointyTop);
         }
 
-        public void DispatchCreateBoard(IBoard board) => OnCreateBoard(board);
+        public void DispatchCreateBoard(IBoard board)
+        {
+            OnCreateBoard(board);
+        }
     }
 }

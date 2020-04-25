@@ -5,29 +5,29 @@ namespace HexBoardGame.UI
 {
     public class UiBoardMenu : UiParentMenu
     {
-        const float Width = 1920;
-        const float Height = 1080;
-        const int ABigLength = 12;
-        [SerializeField] UiBoardHightlight boardHighlight;
-        [SerializeField] Canvas canvas;
-        [SerializeField] Button diagonalAscButton;
-        [SerializeField] Button diagonalDesButton;
-        [SerializeField] Button horizontalButton;
+        private const float Width = 1920;
+        private const float Height = 1080;
+        private const int ABigLength = 12;
+        [SerializeField] private UiBoardHightlight boardHighlight;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private Button diagonalAscButton;
+        [SerializeField] private Button diagonalDesButton;
+        [SerializeField] private Button horizontalButton;
 
         [SerializeField,
          Tooltip("Change the resolution to make the placement of the menu (it depends on the aspect ratio).")]
-        bool isSetResolution = true;
+        private bool isSetResolution = true;
 
-        [SerializeField] RectTransform menu;
+        [SerializeField] private RectTransform menu;
 
 
-        [Header("Buttons"), SerializeField] Button neighboursButton;
+        [Header("Buttons"), SerializeField] private Button neighboursButton;
 
-        [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
+        [SerializeField] private UiTileMapInputHandler uiTileMapInputHandler;
 
-        Vector3Int Selection { get; set; }
+        private Vector3Int Selection { get; set; }
 
-        void OnRightClickTile(Vector3Int selection, Vector2 screenPoint)
+        private void OnRightClickTile(Vector3Int selection, Vector2 screenPoint)
         {
             var referenceResolution = canvas.GetComponent<CanvasScaler>().referenceResolution;
             var currentResolution = new Vector2(Screen.width, Screen.height);
@@ -57,28 +57,28 @@ namespace HexBoardGame.UI
             uiTileMapInputHandler.OnRightClickTile += OnRightClickTile;
         }
 
-        void OnPressNeighbours()
+        private void OnPressNeighbours()
         {
             var hexes = boardController.BoardManipulation.GetNeighbours(Selection);
             boardHighlight.Show(hexes);
             BackButton.Instance.Pop();
         }
 
-        void OnPressDiagonalDes()
+        private void OnPressDiagonalDes()
         {
             var selection = boardController.BoardManipulation.GetDiagonalDescendant(Selection, ABigLength);
             boardHighlight.Show(selection);
             BackButton.Instance.Pop();
         }
 
-        void OnPressDiagonalAsc()
+        private void OnPressDiagonalAsc()
         {
             var selection = boardController.BoardManipulation.GetDiagonalAscendant(Selection, ABigLength);
             boardHighlight.Show(selection);
             BackButton.Instance.Pop();
         }
 
-        void OnPressHorizontal()
+        private void OnPressHorizontal()
         {
             var selection = boardController.BoardManipulation.GetHorizontal(Selection, ABigLength);
             boardHighlight.Show(selection);

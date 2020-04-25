@@ -6,9 +6,9 @@ namespace HexBoardGame.UI
 {
     public class UiTriangleMenu : UiParentMenu
     {
-        [SerializeField] Button confirmButton;
-        [SerializeField] TriangleBoardDataShape dataShape;
-        [SerializeField] Slider size;
+        [SerializeField] private Button confirmButton;
+        [SerializeField] private TriangleBoardDataShape dataShape;
+        [SerializeField] private Slider size;
 
         protected override void Awake()
         {
@@ -22,7 +22,7 @@ namespace HexBoardGame.UI
             Hide();
         }
 
-        void OnConfirm()
+        private void OnConfirm()
         {
             dataShape.size = (int) size.value;
             boardController.SetBoarDataAndCreate(dataShape);

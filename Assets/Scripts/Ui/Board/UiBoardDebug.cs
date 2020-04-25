@@ -8,16 +8,19 @@ namespace Game.Ui
 {
     public class UiBoardDebug : MonoBehaviour
     {
-        GameObject[] _positions;
-        [SerializeField] BoardController controller;
-        [SerializeField] GameObject textPosition;
-        [SerializeField] Tilemap tileMap;
-        IBoard CurrentBoard { get; set; }
+        private GameObject[] _positions;
+        [SerializeField] private BoardController controller;
+        [SerializeField] private GameObject textPosition;
+        [SerializeField] private Tilemap tileMap;
+        private IBoard CurrentBoard { get; set; }
 
-        protected void Awake() => controller.OnCreateBoard += OnCreateBoard;
+        protected void Awake()
+        {
+            controller.OnCreateBoard += OnCreateBoard;
+        }
 
         [Button]
-        void DrawPositions()
+        private void DrawPositions()
         {
             const string uiPosition = "UiPosition_";
             var identity = Quaternion.identity;
@@ -39,7 +42,7 @@ namespace Game.Ui
         }
 
         [Button]
-        void ClearPositions()
+        private void ClearPositions()
         {
             if (_positions == null)
                 return;
@@ -48,7 +51,7 @@ namespace Game.Ui
                 Destroy(i);
         }
 
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
             if (CurrentBoard == null)
                 return;
@@ -61,7 +64,7 @@ namespace Game.Ui
             }
         }
 
-        void OnCreateBoard(IBoard board)
+        private void OnCreateBoard(IBoard board)
         {
             CurrentBoard = board;
             DrawPositions();

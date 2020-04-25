@@ -6,21 +6,25 @@ namespace HexBoardGame.Runtime.GameBoard
 {
     public class BoardElementsController : MonoBehaviour
     {
-        [SerializeField] BoardController boardController;
-        [SerializeField] UiTileMapInputHandler uiTileMapInputHandler;
-        IBoard CurrentBoard { get; set; }
-        IDataProvider ElementProvider { get; set; }
+        [SerializeField] private BoardController boardController;
+        [SerializeField] private UiTileMapInputHandler uiTileMapInputHandler;
+        private IBoard CurrentBoard { get; set; }
+        private IDataProvider ElementProvider { get; set; }
         public event Action<BoardElement, Vector3Int> OnAddElement = (element, cell) => { };
         public event Action<BoardElement, Vector3Int> OnRemoveElement = (element, cell) => { };
-        public void SetElementProvider(IDataProvider provider) => ElementProvider = provider;
 
-        void Awake()
+        public void SetElementProvider(IDataProvider provider)
+        {
+            ElementProvider = provider;
+        }
+
+        private void Awake()
         {
             boardController.OnCreateBoard += OnCreateBoard;
             uiTileMapInputHandler.OnClickTile += OnClickTile;
         }
 
-        void OnClickTile(Vector3Int cell)
+        private void OnClickTile(Vector3Int cell)
         {
             var hex = GetHexCoordinate(cell);
             if (ElementProvider == null)
@@ -34,9 +38,12 @@ namespace HexBoardGame.Runtime.GameBoard
             }
         }
 
-        void OnCreateBoard(IBoard board) => CurrentBoard = board;
+        private void OnCreateBoard(IBoard board)
+        {
+            CurrentBoard = board;
+        }
 
-        void AddElement(BoardElement element, Hex hex)
+        private void AddElement(BoardElement element, Hex hex)
         {
             var position = CurrentBoard.GetPosition(hex);
             if (position == null)
@@ -49,7 +56,7 @@ namespace HexBoardGame.Runtime.GameBoard
             OnAddElement(element, cell);
         }
 
-        void RemoveElement(Hex hex)
+        private void RemoveElement(Hex hex)
         {
             var position = CurrentBoard?.GetPosition(hex);
             if (position == null)
@@ -61,10 +68,14 @@ namespace HexBoardGame.Runtime.GameBoard
             OnRemoveElement(data, GetCellCoordinate(hex));
         }
 
-        static Hex GetHexCoordinate(Vector3Int cell) =>
-            OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
+        private static Hex GetHexCoordinate(Vector3Int cell)
+        {
+            return OffsetCoordHelper.RoffsetToCube(OffsetCoord.Parity.Odd, new OffsetCoord(cell.x, cell.y));
+        }
 
-        static Vector3Int GetCellCoordinate(Hex hex) =>
-            OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, hex).ToVector3Int();
+        private static Vector3Int GetCellCoordinate(Hex hex)
+        {
+            return OffsetCoordHelper.RoffsetFromCube(OffsetCoord.Parity.Odd, hex).ToVector3Int();
+        }
     }
 }

@@ -16,12 +16,15 @@ namespace HexBoardGame.Runtime.GameBoard
             GeneratePositions();
         }
 
-        BoardController Controller { get; }
+        private BoardController Controller { get; }
         public BoardDataShape DataShape { get; }
         public Orientation Orientation { get; }
         public Position[] Positions { get; private set; }
 
-        public bool HasPosition(Hex point) => GetPosition(point) != null;
+        public bool HasPosition(Hex point)
+        {
+            return GetPosition(point) != null;
+        }
 
         public Position GetPosition(Hex point)
         {
@@ -32,7 +35,7 @@ namespace HexBoardGame.Runtime.GameBoard
             return null;
         }
 
-        void GeneratePositions()
+        private void GeneratePositions()
         {
             var points = DataShape.GetHexPoints();
             Positions = new Position[points.Length];
@@ -45,6 +48,9 @@ namespace HexBoardGame.Runtime.GameBoard
             OnCreateBoard();
         }
 
-        void OnCreateBoard() => Controller.DispatchCreateBoard(this);
+        private void OnCreateBoard()
+        {
+            Controller.DispatchCreateBoard(this);
+        }
     }
 }

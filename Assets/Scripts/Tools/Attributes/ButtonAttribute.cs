@@ -7,7 +7,10 @@
 [AttributeUsage(AttributeTargets.Method)]
 public class ButtonAttribute : Attribute
 {
-    public ButtonAttribute(string label) => Label = label;
+    public ButtonAttribute(string label)
+    {
+        Label = label;
+    }
 
     public ButtonAttribute()
     {
