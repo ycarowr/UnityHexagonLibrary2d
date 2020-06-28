@@ -1,5 +1,6 @@
 using System;
 using HexBoardGame.SharedData;
+using Tools.Extensions.Arrays;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -16,6 +17,11 @@ namespace HexBoardGame.Runtime.GameBoard
         private void Start()
         {
             CreateBoard();
+            
+            var start = new Vector3Int(0, 0, 0);
+            var end = new Vector3Int(3, 0, -3);
+            var path = BoardManipulation.GetPathBreadthSearch(start, end);
+            path.Print();
         }
 
         private void CreateBoard()

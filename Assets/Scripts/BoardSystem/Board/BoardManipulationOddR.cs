@@ -1,4 +1,5 @@
-﻿using HexBoardGame.SharedData;
+﻿using System.Collections.Generic;
+using HexBoardGame.SharedData;
 using Tools.Extensions.Arrays;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace HexBoardGame.Runtime
 {
     /// <summary>
     ///     The way to manipulate a board in the Odd-Row layout.
+    ///     TODO: Open for many memory/cache optimizations and algorithms improvements.
     /// </summary>
     public class BoardManipulationOddR : IBoardManipulation
     {
@@ -30,8 +32,7 @@ namespace HexBoardGame.Runtime
             foreach (var direction in NeighboursDirections)
             {
                 var neighbour = Hex.Add(center[0], direction);
-                var array = new[] {neighbour};
-                neighbours = neighbours.Append(array);
+                neighbours = neighbours.Append(GetIfExistsOrEmpty(neighbour));
             }
 
             return neighbours;
@@ -42,33 +43,34 @@ namespace HexBoardGame.Runtime
         /// </summary>
         private Hex[] GetIfExistsOrEmpty(Hex hex)
         {
-            foreach (var i in _hexPoints)
-                if (i == hex)
-                    return new[] {i};
-
-            return new Hex[] { };
+            var cell = GetCellCoordinate(hex);
+            return Contains(cell) ? new[] {GetHexCoordinate(cell)} : new Hex[] { };
         }
 
         #region Operations
 
         public bool Contains(Vector3Int cell)
         {
-            var center = GetHexCoordinate(cell);
-            return GetIfExistsOrEmpty(center).Length > 0;
+            var hex = GetHexCoordinate(cell);
+            foreach (var i in _hexPoints)
+                if (i == hex)
+                    return true;
+            return false;
         }
 
         public Hex[] GetVertical(Vector3Int cell, int length)
         {
+            //For Odd-R the vertical is always empty.
             return new Hex[] { };
         }
 
         public Hex[] GetHorizontal(Vector3Int cell, int length)
         {
-            var center = GetHexCoordinate(cell);
+            var point = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExistsOrEmpty(center);
-            var x = center.q;
-            var y = center.r;
+            var points = GetIfExistsOrEmpty(point);
+            var x = point.q;
+            var y = point.r;
 
             for (var i = 1; i <= halfLength; i++)
                 points = points.Append(GetIfExistsOrEmpty(new Hex(x + i, y)));
@@ -81,11 +83,11 @@ namespace HexBoardGame.Runtime
 
         public Hex[] GetDiagonalAscendant(Vector3Int cell, int length)
         {
-            var center = GetHexCoordinate(cell);
+            var point = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExistsOrEmpty(center);
-            var x = center.q;
-            var y = center.r;
+            var points = GetIfExistsOrEmpty(point);
+            var x = point.q;
+            var y = point.r;
 
             for (var i = 1; i <= halfLength; i++)
                 points = points.Append(GetIfExistsOrEmpty(new Hex(x, y + i)));
@@ -98,11 +100,11 @@ namespace HexBoardGame.Runtime
 
         public Hex[] GetDiagonalDescendant(Vector3Int cell, int length)
         {
-            var center = GetHexCoordinate(cell);
+            var point = GetHexCoordinate(cell);
             var halfLength = length / 2;
-            var points = GetIfExistsOrEmpty(center);
-            var x = center.q;
-            var y = center.r;
+            var points = GetIfExistsOrEmpty(point);
+            var x = point.q;
+            var y = point.r;
 
             for (var i = 1; i <= halfLength; i++)
                 points = points.Append(GetIfExistsOrEmpty(new Hex(x - i, y + i)));
@@ -111,6 +113,50 @@ namespace HexBoardGame.Runtime
                 points = points.Append(GetIfExistsOrEmpty(new Hex(x - i, y + i)));
 
             return points;
+        }
+
+        public Hex[] GetPathBreadthSearch(Vector3Int begin, Vector3Int end)
+        {
+            var beginHex = GetHexCoordinate(begin);
+            var endHex = GetHexCoordinate(end);
+            var frontier = new Queue<Hex>();
+            frontier.Enqueue(beginHex);
+            var visited = new Dictionary<Hex, Hex>();
+
+            
+            //Creating the breadcrumbs
+            
+            while (frontier.Count > 0)
+            {
+                var current = frontier.Dequeue();
+                if (current == endHex)
+                    break;
+                
+                var currentCell = GetCellCoordinate(current);
+                var neighbours = GetNeighbours(currentCell);
+                foreach (var next in neighbours)
+                {
+                    if (!visited.ContainsKey(next))
+                    {
+                        frontier.Enqueue(next);
+                        visited[next] = current;
+                    }
+                }
+            }
+
+            //Backtracking from the ending point
+            
+            
+            var path = new List<Hex>();
+            while(endHex != beginHex)
+            {
+                path.Add(endHex);
+                endHex = visited[endHex];
+            }
+            
+            path.Add(beginHex);
+            path.Reverse();
+            return path.ToArray();
         }
 
         /// <summary>

@@ -13,10 +13,10 @@ namespace HexBoardGame.Runtime
         Hex[] GetHorizontal(Vector3Int cell, int length);
         Hex[] GetDiagonalAscendant(Vector3Int cell, int length);
         Hex[] GetDiagonalDescendant(Vector3Int cell, int length);
-
+        Hex[] GetPathBreadthSearch(Vector3Int begin, Vector3Int end);
         //TODO:
         //1. Range
         //2. Path finding
-        //3. More useful methods...
+        //3. More useful methods ...
     }
 }
