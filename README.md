@@ -1,5 +1,5 @@
 [![Unity Version](https://img.shields.io/badge/Unity-2019.2.7f2%2B-blue.svg)](https://unity3d.com/get-unity/download)
-[![Twitter](https://img.shields.io/twitter/follow/LagrangeSpot.svg?label=Follow@LagrangeSpot&style=social)](https://twitter.com/intent/follow?screen_name=LagrangeSpot)
+[![Twitter](https://img.shields.io/twitter/follow/ycarowr.svg?label=Follow@ycarowr&style=social)](https://twitter.com/intent/follow?screen_name=ycarowr)
 
 # A hexagonal board implementation in Unity
 <img src="https://media.istockphoto.com/vectors/polygon-background-for-christmas-vector-id619411136">
